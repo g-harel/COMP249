@@ -7,6 +7,7 @@ import java.io.*;
  * @author Gabriel
  */
 public class PublicationListingProcess1 {
+    static Scanner userInput = new Scanner(System.in);
     public static Publication[] publicationArray;
     private static final String READPATH = "src/Assignment2/PublicationData_Input.txt";
     private enum PublicationTypes{
@@ -18,7 +19,6 @@ public class PublicationListingProcess1 {
         PUBLICATIONNBPAGES
     }
     public static void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
         File fileToWrite;
         System.out.print("Specify the name of the output file > ");
         while(true) {
@@ -65,8 +65,11 @@ public class PublicationListingProcess1 {
                                                         Double.parseDouble(fileContent[i][4]), Integer.parseInt(fileContent[i][5]));
             } catch (NumberFormatException ex) {
                 publicationArray[i] = new Publication();
-                System.out.println("The format of publication " + (i + 1) + " is incorrect and has been skipped");
+                System.out.println("The format of publication no." + (i + 1) + " is incorrect and has been skipped");
             }
+        }
+        while(duplicateCodes()) {
+            
         }
     }
     
@@ -111,5 +114,19 @@ public class PublicationListingProcess1 {
         else {
             return entry.split(seperator);
         }
+    }
+    
+    static private boolean duplicateCodes() {
+        for(int i = 0 ; i < publicationArray.length ; i++) {
+            for(int j = i + 1 ; j < publicationArray.length ; j++) {
+                if(publicationArray[i].getPublicationCode() == publicationArray[j].getPublicationCode()) {
+                    System.out.print("Publication code no." + j + " is the same as publication code no." + i + ", enter the new code > ");
+                    publicationArray[j].setPublicationCode(userInput.next());
+                    userInput.nextLine();
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

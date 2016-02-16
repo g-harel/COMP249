@@ -2,8 +2,6 @@ package Assignment2;
 
 import java.util.*;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author Gabriel
@@ -75,14 +73,14 @@ public class PublicationListingProcess1 {
                 for(int i = 0 ; i < publicationArray.length ; i++) {
                     for(int j = i + 1 ; j < publicationArray.length ; j++) {
                         if(publicationArray[i].getPublicationCode() == publicationArray[j].getPublicationCode()) {
-                            throw new CopyCodeException();
+                            throw new CopyCodeException(i + " " + j);
                         }
                     }
                 }
                 break;
             } catch (CopyCodeException ex) {
-                    System.out.print("Publication code no." + (/*placeholder*/0) + " is the same as publication code no." + (/*placeholder*/0) + ", enter the new code > ");
-                    publicationArray[0/*placeholder*/].setPublicationCode(userInput.next());
+                    System.out.print("Publication code no." + (Integer.parseInt(ex.getCulprits()[1]) + 1) + " is the same as publication code no." + (Integer.parseInt(ex.getCulprits()[0]) + 1) + ", enter the new code > ");
+                    publicationArray[Integer.parseInt(ex.getCulprits()[1])].setPublicationCode(userInput.next());
                     userInput.nextLine();
             }
         }
@@ -109,15 +107,12 @@ public class PublicationListingProcess1 {
         return nbPublications;
     }
     
-    private static String[] split(String entry, String seperator) {
+    static String[] split(String entry, String seperator) {
         if(seperator.equals("whitespace")) {
             String allSpace = entry.trim().replace('\t', ' ');
             String temp = "";
             for(int i = 0 ; i < allSpace.length() ; i++) {
-                if(i > 0 && allSpace.charAt(i) == ' ' && allSpace.charAt(i-1) == ' ') {
-                    //do nothing
-                }
-                else {
+                if(!(i > 0 && allSpace.charAt(i) == ' ' && allSpace.charAt(i-1) == ' ')) {
                     temp += allSpace.charAt(i);
                 }
             }

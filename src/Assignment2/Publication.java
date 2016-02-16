@@ -1,5 +1,7 @@
 package Assignment2;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Gabriel
@@ -41,12 +43,16 @@ public class Publication {
     }
     
     public void setPublicationCode(String publicationCode) {
+        Scanner input = new Scanner(System.in);
+        String temp = publicationCode;
         while(true) {    
             try {
-                setPublicationCode(Long.parseLong(publicationCode));
+                setPublicationCode(Long.parseLong(temp));
                 break;
             } catch(NumberFormatException ex) {
                 System.out.print("The code you entered is invalid, try again > ");
+                temp = input.next();
+                input.nextLine();
             }
         }
     }

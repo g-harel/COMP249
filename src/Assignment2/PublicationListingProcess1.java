@@ -86,10 +86,7 @@ public class PublicationListingProcess1 {
             if(line == null) {
                 break;
             }
-            else if (line.equals("")) {
-                //do nothing
-            }
-            else {
+            else if (!line.equals("")) {
                 nbPublications++;
             }
         }
@@ -120,7 +117,7 @@ public class PublicationListingProcess1 {
         for(int i = 0 ; i < publicationArray.length ; i++) {
             for(int j = i + 1 ; j < publicationArray.length ; j++) {
                 if(publicationArray[i].getPublicationCode() == publicationArray[j].getPublicationCode()) {
-                    System.out.print("Publication code no." + j + " is the same as publication code no." + i + ", enter the new code > ");
+                    System.out.print("Publication code no." + (j + 1) + " is the same as publication code no." + (i + 1) + ", enter the new code > ");
                     publicationArray[j].setPublicationCode(userInput.next());
                     userInput.nextLine();
                     return true;

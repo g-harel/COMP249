@@ -2,6 +2,8 @@ package Assignment2;
 
 import java.util.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Gabriel
@@ -68,8 +70,21 @@ public class PublicationListingProcess1 {
                 System.out.println("The format of publication no." + (i + 1) + " is incorrect and has been skipped");
             }
         }
-        while(duplicateCodes()) {
-            
+        while(true) {
+            try {
+                for(int i = 0 ; i < publicationArray.length ; i++) {
+                    for(int j = i + 1 ; j < publicationArray.length ; j++) {
+                        if(publicationArray[i].getPublicationCode() == publicationArray[j].getPublicationCode()) {
+                            throw new CopyCodeException();
+                        }
+                    }
+                }
+                break;
+            } catch (CopyCodeException ex) {
+                    System.out.print("Publication code no." + (/*placeholder*/0) + " is the same as publication code no." + (/*placeholder*/0) + ", enter the new code > ");
+                    publicationArray[0/*placeholder*/].setPublicationCode(userInput.next());
+                    userInput.nextLine();
+            }
         }
     }
     
@@ -111,19 +126,5 @@ public class PublicationListingProcess1 {
         else {
             return entry.split(seperator);
         }
-    }
-    
-    static private boolean duplicateCodes() {
-        for(int i = 0 ; i < publicationArray.length ; i++) {
-            for(int j = i + 1 ; j < publicationArray.length ; j++) {
-                if(publicationArray[i].getPublicationCode() == publicationArray[j].getPublicationCode()) {
-                    System.out.print("Publication code no." + (j + 1) + " is the same as publication code no." + (i + 1) + ", enter the new code > ");
-                    publicationArray[j].setPublicationCode(userInput.next());
-                    userInput.nextLine();
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 }

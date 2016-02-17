@@ -22,7 +22,7 @@ public class PublicationListingProcess1 {
         File fileToWrite;
         System.out.print("Specify the name of the output file > ");
         while(true) {
-            fileToWrite = new File("src/Assignment2/" + userInput.next());
+            fileToWrite = new File("src/Assignment2/" + userInput.next() + ".txt");
             userInput.nextLine();
             if(fileToWrite.exists()){
                 System.out.print("That file already exists (" + fileToWrite.length() + "bytes) enter another name > ");

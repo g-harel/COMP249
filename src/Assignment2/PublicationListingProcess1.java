@@ -45,13 +45,13 @@ public class PublicationListingProcess1 {
                 //handle small file
                 System.out.println("File too small to have duplacates");
                 //
-//                reader.close();
-//                writer.close();
+                reader.close();
+                writer.close();
             }
             else {
-                //correctListOfItems(reader, writer);
+                //correctListOfItems();
                 printFileItems(fileToWrite);
-//                reader.close();
+                reader.close();
             }
         } catch (FileNotFoundException ex) {
             System.out.println("The file " + READFILENAME + " is missing, please place it in \"src/Assignment2/\" and restart the program." + Arrays.toString(ex.getStackTrace()));
@@ -61,12 +61,18 @@ public class PublicationListingProcess1 {
         }
     }
     
-    public static void correctListOfItems(Scanner input, BufferedWriter output) throws IOException {
+    /**
+     * Checks that there are no duplicated publication codes in an array of Publication objects
+     * 
+     * @param array
+     * @throws IOException
+     */
+    public static void correctListOfItems(Publication[] array) throws IOException {
         while(true) {
             try {
-                for(int i = 0 ; i < publicationArray.length ; i++) {
-                    for(int j = i + 1 ; j < publicationArray.length ; j++) {
-                        if(publicationArray[i].getPublicationCode() == publicationArray[j].getPublicationCode()) {
+                for(int i = 0 ; i < array.length ; i++) {
+                    for(int j = i + 1 ; j < array.length ; j++) {
+                        if(array[i].getPublicationCode() == array[j].getPublicationCode()) {
                             throw new CopyCodeException(i + " " + j);
                         }
                     }
@@ -74,28 +80,35 @@ public class PublicationListingProcess1 {
                 break;
             } catch (CopyCodeException ex) {
                     System.out.print("Publication code no." + (Integer.parseInt(ex.getCulprits()[1]) + 1) + " is the same as publication code no." + (Integer.parseInt(ex.getCulprits()[0]) + 1) + ", enter the new code > ");
-                    publicationArray[Integer.parseInt(ex.getCulprits()[1])].setPublicationCode(userInput.next());
+                    array[Integer.parseInt(ex.getCulprits()[1])].setPublicationCode(userInput.next());
                     userInput.nextLine();
             }
         }
     }
     
-    public static void printFileItems(File outputFile) throws FileNotFoundException {
-        System.out.println("Original file :\n");
-        for(int i = 0 ; i < publicationArray.length ; i++) {
-            System.out.print((i + 1) + ". ");
-            for(int j = 0 ; j < 6 ; j++) {
-                if(reader.hasNext() || true) {
-                    System.out.print(reader.next() + "  ");
-                }
-            }
-            System.out.println("");
+    /**
+     * Prints the contents of a file to the console
+     * 
+     * @param outputFile
+     * @throws FileNotFoundException 
+     */
+    private static void printFileItems(File inputFile) throws FileNotFoundException {
+        Scanner input = new Scanner(inputFile);
+        while(input.hasNextLine()) {
+            System.out.println(input.nextLine().trim());
         }
-        System.out.println("Corrected file");
     }
     
-    public static int getNumberOfPublications(String path) throws FileNotFoundException, IOException {
-        BufferedReader input = new BufferedReader(new FileReader(path));
+    /**
+     * Returns the number of non-empty lines found in the inputted filename at the READPATH directory
+     * 
+     * @param path
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
+    private static int getLines(String path) throws FileNotFoundException, IOException {
+        BufferedReader input = new BufferedReader(new FileReader(READPATH + path));
         int nbPublications = 0;
         String line;
         while(true) {
@@ -110,12 +123,20 @@ public class PublicationListingProcess1 {
         return nbPublications;
     }
     
-    public static Publication[] arrayMaker(String name) throws FileNotFoundException, IOException{
+    /**
+     * Makes an array of Publications from the inputted filename in the READPATH directory
+     * 
+     * @param name
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
+    private static Publication[] arrayMaker(String name) throws FileNotFoundException, IOException{
         Scanner input = new Scanner(new FileReader(READPATH + name));
-        Publication[] array = new Publication[getNumberOfPublications(READPATH + name)];
+        Publication[] array = new Publication[getLines(name)];
         String[] fileContent;
         for(int i = 0; i < array.length; i++) { 
-            fileContent = split(input.nextLine(), "whitespace");
+            fileContent = split(input.nextLine());
             try {    
                 array[i] = new Publication(Long.parseLong(fileContent[0]), fileContent[1], 
                                             Integer.parseInt(fileContent[2]), fileContent[3], 
@@ -128,19 +149,26 @@ public class PublicationListingProcess1 {
         return array;
     }
     
-    static String[] split(String entry, String seperator) {
-        if(seperator.equals("whitespace")) {
-            String allSpace = entry.trim().replace('\t', ' ');
-            String temp = "";
-            for(int i = 0 ; i < allSpace.length() ; i++) {
-                if(!(i > 0 && allSpace.charAt(i) == ' ' && allSpace.charAt(i-1) == ' ')) {
-                    temp += allSpace.charAt(i);
-                }
+    /**
+     * Splits inputted strings every whitespace and returns an array of the substrings
+     * 
+     * @param toSplit
+     * @return 
+     */
+    private static String[] split(String toSplit) {
+        String allSpace = toSplit.trim().replace('\t', ' ').replace('\n', ' ');
+        String temp = "";
+        for(int i = 0 ; i < allSpace.length() ; i++) {
+            if(!(i > 0 && allSpace.charAt(i) == ' ' && allSpace.charAt(i-1) == ' ')) {
+                temp += allSpace.charAt(i);
             }
-            return temp.split(" ");
         }
-        else {
-            return entry.split(seperator);
-        }
+        return temp.split(" ");
+        
+    }
+    
+    private static Publication[] publicationFormatter(Publication[] publications) {
+        
+        
     }
 }

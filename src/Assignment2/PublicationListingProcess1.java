@@ -10,6 +10,10 @@ public class PublicationListingProcess1 {
     static Scanner userInput = new Scanner(System.in);
     public static Publication[] publicationArray;
     private static final String READPATH = "src/Assignment2/PublicationData_Input.txt";
+    
+    private static Scanner reader;
+    private static BufferedWriter writer;
+    
     private enum PublicationTypes{
         PUBLICATIONCODE,
         PUBLICATIONNAME,
@@ -18,6 +22,7 @@ public class PublicationListingProcess1 {
         PUBLICATIONCOST,
         PUBLICATIONNBPAGES
     }
+    
     public static void main(String[] args) {
         File fileToWrite;
         System.out.print("Specify the name of the output file > ");
@@ -32,20 +37,20 @@ public class PublicationListingProcess1 {
             }
         }
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(READPATH));
-            BufferedWriter outputStream = new BufferedWriter(new FileWriter(fileToWrite));
+            reader = new Scanner(new FileReader(READPATH));
+            writer = new BufferedWriter(new FileWriter(fileToWrite));
             publicationArray = new Publication[getNumberOfPublications()];
             if(publicationArray.length <= 1) {
                 //handle small file
                 System.out.println("File too small to have duplacates");
                 //
                 reader.close();
-                outputStream.close();
+                writer.close();
             }
             else {
-                correctListOfItems(reader, outputStream);
+                correctListOfItems(reader, writer);
                 reader.close();
-                outputStream.close();
+                writer.close();
             }
         } catch (FileNotFoundException ex) {
             System.out.println("The file " + READPATH + " is missing, please place it in \"src/Assignment2/\" and restart the program.");
@@ -55,18 +60,9 @@ public class PublicationListingProcess1 {
         }
     }
     
-    public static void correctListOfItems(BufferedReader input, BufferedWriter output) throws IOException {
-        String[][] fileContent = new String[publicationArray.length][6];
-        for(int i = 0; i < publicationArray.length; i++) {
-            fileContent[i] = split(input.readLine(), "whitespace");
-            try {    
-                publicationArray[i] = new Publication(Long.parseLong(fileContent[i][0]), fileContent[i][1], 
-                                                        Integer.parseInt(fileContent[i][2]), fileContent[i][3], 
-                                                        Double.parseDouble(fileContent[i][4]), Integer.parseInt(fileContent[i][5]));
-            } catch (NumberFormatException ex) {
-                publicationArray[i] = new Publication();
-                System.out.println("The format of publication no." + (i + 1) + " is incorrect and has been skipped");
-            }
+    public static void correctListOfItems(Scanner input, BufferedWriter output) throws IOException {
+        for(int i = 0; i < publicationArray.length; i++) { 
+            publicationArray[i] = new Publication(reader.nextLong(), reader.next(), reader.nextInt(), reader.next(), reader.nextDouble(), reader.nextInt());
         }
         while(true) {
             try {

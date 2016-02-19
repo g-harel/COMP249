@@ -14,7 +14,3 @@
 900876512 Design_Pattern 2002 Jay_Franklin 122.15 217
 900876512 Networking_and_Data_Communications 2010 Pete_Jonson 229.25 724
 
-
-
-
-

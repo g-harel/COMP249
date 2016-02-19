@@ -11,20 +11,24 @@ public class Publication {
     private int publicationYear, publicationPages;
     private long publicationCode;
     private double publicationCost;
-    private String publicationName, publicationAuthorname;
+    private String publicationName, publicationAuthorName;
 
     public Publication() {
         this(0, "", 0, "", 0.0, 0);
     }
     
-    public Publication(long publicationCode, String publicationName, int publicationYear, String publicationAuthorname, 
+    public Publication(long publicationCode, String publicationName, int publicationYear, String publicationAuthorName, 
                         double publicationCost, int publicationPages) {
         this.publicationYear = publicationYear;
         this.publicationPages = publicationPages;
         this.publicationCode = publicationCode;
         this.publicationCost = publicationCost;
         this.publicationName = publicationName;
-        this.publicationAuthorname = publicationAuthorname;
+        this.publicationAuthorName = publicationAuthorName;
+    }
+    
+    public String toString() {
+        return (getPublicationCode() + " " + getPublicationName() + " " + getPublicationYear() + " " + getPublicationAuthorName() + " " + getPublicationCost() + " " + getPublicationPages());
     }
 
     public String get(int i) {
@@ -38,7 +42,7 @@ public class Publication {
             return "" + getPublicationYear();
         }
         else if(i == 3) {
-            return getPublicationAuthorname();
+            return getPublicationAuthorName();
         }
         else if(i == 4) {
             return "" + getPublicationCost();
@@ -127,12 +131,12 @@ public class Publication {
         this.publicationName = publicationName;
     }
 
-    public String getPublicationAuthorname() {
-        return publicationAuthorname;
+    public String getPublicationAuthorName() {
+        return publicationAuthorName;
     }
 
     public void setPublicationAuthorname(String publicationAuthorname) {
-        this.publicationAuthorname = publicationAuthorname;
+        this.publicationAuthorName = publicationAuthorname;
     }
     
 }

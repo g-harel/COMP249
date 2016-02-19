@@ -26,6 +26,30 @@ public class Publication {
         this.publicationAuthorname = publicationAuthorname;
     }
 
+    public String get(int i) {
+        if(i == 0) {
+            return "" + getPublicationCode();
+        }
+        else if(i == 1) {
+            return getPublicationName();
+        }
+        else if(i == 2) {
+            return "" + getPublicationYear();
+        }
+        else if(i == 3) {
+            return getPublicationAuthorname();
+        }
+        else if(i == 4) {
+            return "" + getPublicationAuthorname();
+        }
+        else if(i == 5) {
+            return "" + getPublicationPages();
+        }
+        else {
+            return null;
+        }
+    }
+    
     public int getPublicationYear() {
         return publicationYear;
     }

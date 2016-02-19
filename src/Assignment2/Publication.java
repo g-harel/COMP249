@@ -7,10 +7,11 @@ import java.util.Scanner;
  * @author Gabriel
  */
 public class Publication {
-    int publicationYear, publicationPages;
-    long publicationCode;
-    double publicationCost;
-    String publicationName, publicationAuthorname;
+    
+    private int publicationYear, publicationPages;
+    private long publicationCode;
+    private double publicationCost;
+    private String publicationName, publicationAuthorname;
 
     public Publication() {
         this(0, "", 0, "", 0.0, 0);

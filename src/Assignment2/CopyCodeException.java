@@ -5,11 +5,16 @@ package Assignment2;
  * @author Gabriel
  */
 public class CopyCodeException extends Exception{
-    CopyCodeException(String message) {
+    
+    private int toChange;
+    
+    CopyCodeException(String message, int toChange) {
         super(message);
+        System.out.print(message);
+        this.toChange = toChange;
     }
     
-    public String[] getCulprits(){
-        return this.getMessage().split(" ");
+    public int getToChange(){
+        return toChange;
     }
 }

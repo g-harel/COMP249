@@ -40,13 +40,34 @@ public class Publication {
             return getPublicationAuthorname();
         }
         else if(i == 4) {
-            return "" + getPublicationAuthorname();
+            return "" + getPublicationCost();
         }
         else if(i == 5) {
             return "" + getPublicationPages();
         }
         else {
             return null;
+        }
+    }
+    
+    public void set(int i, String value) {
+        if(i == 0) {
+            setPublicationCode(Integer.parseInt(value));
+        }
+        else if(i == 1) {
+            setPublicationName(value);
+        }
+        else if(i == 2) {
+            setPublicationYear(Integer.parseInt(value));
+        }
+        else if(i == 3) {
+            setPublicationAuthorname(value);
+        }
+        else if(i == 4) {
+            setPublicationCost(Double.parseDouble(value));
+        }
+        else if(i == 5) {
+            setPublicationPages(Integer.parseInt(value));
         }
     }
     

@@ -2,6 +2,8 @@ package Assignment2;
 
 import java.util.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Gabriel
@@ -11,8 +13,6 @@ public class PublicationListingProcess1 {
     private final static Scanner userInput = new Scanner(System.in);
     private static final String READFILENAME = "PublicationData_Input.txt";
     private static final String READPATH = "src/Assignment2/";
-    
-    private static File fileToWrite;
     
     private enum PublicationTypes{
         PUBLICATIONCODE,
@@ -25,7 +25,7 @@ public class PublicationListingProcess1 {
     
     public static void main(String[] args) {
         
-        Publication[] publicationArray;
+        File fileToWrite;
         System.out.print("Specify the name of the output file > ");
         while(true) {
             fileToWrite = new File("src/Assignment2/" + userInput.next() + ".txt");
@@ -35,21 +35,23 @@ public class PublicationListingProcess1 {
             }
             else {
                 break;
-            }
+            }        
         }
         try {
-            publicationArray = arrayMaker(READFILENAME);
+            Scanner oldFileInput = new Scanner(new File(READPATH + READFILENAME));
+            Scanner newFileInput = new Scanner(fileToWrite);
+            PrintWriter newFileOutput = new PrintWriter(new File(fileToWrite.getName()));
             if(publicationArray.length <= 1) {
                 //handle small file
                 System.out.println("File too small to have duplacates");
                 //
             }
             else {
-                correctListOfItems(publicationArray);
+                correctListOfItems(oldFileInput, newFileOutput);
                 System.out.println("\n\nOld file :");
-                printFileItems(new File(READPATH + READFILENAME));
-                System.out.println("\n\nNew file :");
-                printFileItems(fileToWrite);
+                printFileItems(oldFileInput);
+                System.out.println("\nNew file :");
+                printFileItems(newFileInput);
             }
         } catch (FileNotFoundException ex) {
             System.out.println("The file " + READFILENAME + " is missing, please place it in \"src/Assignment2/\" and restart the program." + Arrays.toString(ex.getStackTrace()));
@@ -62,16 +64,18 @@ public class PublicationListingProcess1 {
     /**
      * Checks that there are no duplicated publication codes in an array of Publication objects
      * 
-     * @param array
+     * @param oldFileInput
+     * @param newFileOutput
      * @throws IOException
      */
-    public static void correctListOfItems(Publication[] array) throws IOException {
+    public static void correctListOfItems(Scanner oldFileInput, PrintWriter newFileOutput) throws IOException {
         System.out.println();
+        Publication[] publicationArray = arrayMaker(oldFileInput);
         while(true) {
             try {
-                for(int i = 0 ; i < array.length ; i++) {
-                    for(int j = i + 1 ; j < array.length ; j++) {
-                        if(array[i].getPublicationCode() == array[j].getPublicationCode()) {
+                for(int i = 0 ; i < publicationArray.length ; i++) {
+                    for(int j = i + 1 ; j < publicationArray.length ; j++) {
+                        if(publicationArray[i].getPublicationCode() == publicationArray[j].getPublicationCode()) {
                             throw new CopyCodeException("Publication code no." + (j + 1) + " is the same as publication code no." + (i + 1), j);
                         }
                     }
@@ -79,15 +83,13 @@ public class PublicationListingProcess1 {
                 break;
             } catch (CopyCodeException ex) {
                     System.out.print(", enter the new code > ");
-                    array[ex.getToChange()].setPublicationCode(userInput.next());
+                    publicationArray[ex.getToChange()].setPublicationCode(userInput.next());
                     userInput.nextLine();
             }
         }
-        PrintWriter output = new PrintWriter(new BufferedOutputStream(new FileOutputStream(fileToWrite, true)));
-        for(int i = 0 ; i < array.length ; i++) {
-            output.println(array[i].toString());
+        for (Publication i : publicationArray) {
+            newFileOutput.println(i.toString());
         }
-        output.close();
     }
     
     /**
@@ -96,8 +98,7 @@ public class PublicationListingProcess1 {
      * @param outputFile
      * @throws FileNotFoundException 
      */
-    private static void printFileItems(File inputFile) throws FileNotFoundException {
-        Scanner input = new Scanner(inputFile);
+    private static void printFileItems(Scanner input) throws FileNotFoundException {
         while(input.hasNextLine()) {
             System.out.println(input.nextLine().trim());
         }
@@ -111,12 +112,11 @@ public class PublicationListingProcess1 {
      * @throws FileNotFoundException
      * @throws IOException 
      */
-    private static int getLines(String name) throws FileNotFoundException, IOException {
-        BufferedReader input = new BufferedReader(new FileReader(READPATH + name));
+    private static int getLines(Scanner input) throws FileNotFoundException, IOException {
         int nbPublications = 0;
         String line;
         while(true) {
-            line = input.readLine();
+            line = input.nextLine();
             if(line == null) {
                 break;
             }
@@ -135,9 +135,8 @@ public class PublicationListingProcess1 {
      * @throws FileNotFoundException
      * @throws IOException 
      */
-    private static Publication[] arrayMaker(String name) throws FileNotFoundException, IOException{
-        Scanner input = new Scanner(new FileReader(READPATH + name));
-        Publication[] array = new Publication[getLines(name)];
+    private static Publication[] arrayMaker(Scanner input) throws FileNotFoundException, IOException{
+        Publication[] array = new Publication[getLines(input)];
         String[] fileContent;
         for(int i = 0; i < array.length; i++) { 
             fileContent = split(input.nextLine());

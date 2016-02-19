@@ -66,6 +66,7 @@ public class PublicationListingProcess1 {
      * @throws IOException
      */
     public static void correctListOfItems(Publication[] array) throws IOException {
+        System.out.println();
         while(true) {
             try {
                 for(int i = 0 ; i < array.length ; i++) {

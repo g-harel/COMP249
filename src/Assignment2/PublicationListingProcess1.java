@@ -28,7 +28,7 @@ public class PublicationListingProcess1 {
         File fileToWrite;
         System.out.print("Specify the name of the output file > ");
         while(true) {
-            fileToWrite = new File("src/Assignment2/" + userInput.next() + ".txt");
+            fileToWrite = new File(READPATH + userInput.next() + ".txt");
             userInput.nextLine();
             if(fileToWrite.exists()){
                 System.out.print("That file already exists (" + fileToWrite.length() + "bytes) enter another name > ");
@@ -38,23 +38,28 @@ public class PublicationListingProcess1 {
             }        
         }
         try {
+            fileToWrite.createNewFile();
+            if(!(new File(READPATH + READFILENAME)).exists()) {
+                throw new FileNotFoundException(READFILENAME);
+            }
             Scanner oldFileInput = new Scanner(new File(READPATH + READFILENAME));
             Scanner newFileInput = new Scanner(fileToWrite);
             PrintWriter newFileOutput = new PrintWriter(new File(fileToWrite.getName()));
-            if(publicationArray.length <= 1) {
+            System.out.println("Connection to all files established");
+            if(false /*|| getLines(oldFileInput) <= 1*/) {
                 //handle small file
                 System.out.println("File too small to have duplacates");
                 //
             }
             else {
                 correctListOfItems(oldFileInput, newFileOutput);
-                System.out.println("\n\nOld file :");
+                System.out.println("\nOld file :");
                 printFileItems(oldFileInput);
                 System.out.println("\nNew file :");
                 printFileItems(newFileInput);
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("The file " + READFILENAME + " is missing, please place it in \"src/Assignment2/\" and restart the program." + Arrays.toString(ex.getStackTrace()));
+            System.out.println("The file " + ex.getMessage() + " is missing, please place it in \"" + READPATH + "\" and restart the program." + Arrays.toString(ex.getStackTrace()));
             System.exit(0);
         } catch (IOException ex) {
             //handle exception
@@ -115,12 +120,9 @@ public class PublicationListingProcess1 {
     private static int getLines(Scanner input) throws FileNotFoundException, IOException {
         int nbPublications = 0;
         String line;
-        while(true) {
+        while(input.hasNextLine()) {
             line = input.nextLine();
-            if(line == null) {
-                break;
-            }
-            else if (!line.equals("")) {
+            if (!line.equals("")) {
                 nbPublications++;
             }
         }
@@ -137,16 +139,19 @@ public class PublicationListingProcess1 {
      */
     private static Publication[] arrayMaker(Scanner input) throws FileNotFoundException, IOException{
         Publication[] array = new Publication[getLines(input)];
+        System.out.println(array.length);
         String[] fileContent;
-        for(int i = 0; i < array.length; i++) { 
-            fileContent = split(input.nextLine());
-            try {    
-                array[i] = new Publication(Long.parseLong(fileContent[0]), fileContent[1], 
-                                            Integer.parseInt(fileContent[2]), fileContent[3], 
-                                            Double.parseDouble(fileContent[4]), Integer.parseInt(fileContent[5]));
-            } catch (NumberFormatException ex) {
-                array[i] = new Publication();
-                System.out.println("The format of publication no." + (i + 1) + " is incorrect and has been skipped");
+        for(int i = 0; i < array.length; i++) {
+            if(input.hasNextLine()) {
+                fileContent = split(input.nextLine()); 
+                try {    
+                    array[i] = new Publication(Long.parseLong(fileContent[0]), fileContent[1], 
+                                                Integer.parseInt(fileContent[2]), fileContent[3], 
+                                                Double.parseDouble(fileContent[4]), Integer.parseInt(fileContent[5]));
+                } catch (NumberFormatException ex) {
+                    array[i] = new Publication();
+                    System.out.println("The format of publication no." + (i + 1) + " is incorrect and has been skipped");
+                }
             }
         }
         return array;
@@ -159,6 +164,7 @@ public class PublicationListingProcess1 {
      * @return 
      */
     private static String[] split(String toSplit) {
+        System.out.println(toSplit);
         String allSpace = toSplit.trim().replace('\t', ' ').replace('\n', ' ');
         //not sure if necessary
         String temp = "";

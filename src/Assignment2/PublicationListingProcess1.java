@@ -45,12 +45,11 @@ public class PublicationListingProcess1 {
                 //
             }
             else {
-                publicationArray = correctListOfItems(publicationArray);
+                correctListOfItems(publicationArray);
+                System.out.println("\n\nOld file :");
+                printFileItems(new File(READPATH + READFILENAME));
+                System.out.println("\n\nNew file :");
                 printFileItems(fileToWrite);
-                System.out.println("Old file :\n");
-                printPublicationArray(publicationFormatter(arrayMaker(READFILENAME)));
-                System.out.println("\n\nNew file :\n");
-                printPublicationArray(publicationFormatter(publicationArray));
             }
         } catch (FileNotFoundException ex) {
             System.out.println("The file " + READFILENAME + " is missing, please place it in \"src/Assignment2/\" and restart the program." + Arrays.toString(ex.getStackTrace()));
@@ -64,10 +63,9 @@ public class PublicationListingProcess1 {
      * Checks that there are no duplicated publication codes in an array of Publication objects
      * 
      * @param array
-     * @return 
      * @throws IOException
      */
-    public static Publication[] correctListOfItems(Publication[] array) throws IOException {
+    public static void correctListOfItems(Publication[] array) throws IOException {
         while(true) {
             try {
                 for(int i = 0 ; i < array.length ; i++) {
@@ -84,11 +82,11 @@ public class PublicationListingProcess1 {
                     userInput.nextLine();
             }
         }
-        PrintWriter output = new PrintWriter(fileToWrite);
+        PrintWriter output = new PrintWriter(new BufferedOutputStream(new FileOutputStream(fileToWrite, true)));
         for(int i = 0 ; i < array.length ; i++) {
             output.println(array[i].toString());
         }
-        return array;
+        output.close();
     }
     
     /**
@@ -101,18 +99,6 @@ public class PublicationListingProcess1 {
         Scanner input = new Scanner(inputFile);
         while(input.hasNextLine()) {
             System.out.println(input.nextLine().trim());
-        }
-    }
-    
-    /**
-     * Prints the contents of an array of Publication objects and adds line numbers
-     * 
-     * @param array 
-     */
-    private static void printPublicationArray(Publication[] array) {
-        Publication[] formattedArray = publicationFormatter(array);
-        for(int i = 0 ; i < 0 ; i++) {
-            System.out.println((i + 1) + "." + ((i < 10)?" ":"") + formattedArray[i].toString());
         }
     }
     
@@ -182,27 +168,5 @@ public class PublicationListingProcess1 {
             }
         }
         return temp.split(" ");
-    }
-    
-    /**
-     * Formats a Publication array for proper display on the console
-     * 
-     * @param array
-     * @return 
-     */
-    private static Publication[] publicationFormatter(Publication[] array) {
-        int[] largest = new int[6];
-        for(int i = 0 ; i < 6 ; i++) {
-            largest[i] = 0;
-            for(int j = 0 ; j < array.length ; j++) {
-                largest[i] = Math.max(array[j].get(i).length(), largest[i]);
-            }
-            for(int j = 0 ; j < array.length ; j++) {
-                for(int k = 0 ; k < (largest[i] - array[j].get(i).length()) ; k++) {
-                    array[j].set(i, array[j].get(i) + " ");
-                }
-            }
-        }
-        return array;
     }
 }

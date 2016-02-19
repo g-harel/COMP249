@@ -7,14 +7,13 @@ import java.io.*;
  * @author Gabriel
  */
 public class PublicationListingProcess1 {
-    static Scanner userInput = new Scanner(System.in);
-    public static Publication[] publicationArray;
+    
+    private final static Scanner userInput = new Scanner(System.in);
+    private static Publication[] publicationArray;
     private static final String READFILENAME = "PublicationData_Input.txt";
     private static final String READPATH = "src/Assignment2/";
     
     private static File fileToWrite;
-    private static Scanner reader;
-    private static BufferedWriter writer;
     
     private enum PublicationTypes{
         PUBLICATIONCODE,
@@ -38,20 +37,15 @@ public class PublicationListingProcess1 {
             }
         }
         try {
-            reader = new Scanner(new FileReader(READPATH + READFILENAME));
-            writer = new BufferedWriter(new FileWriter(fileToWrite, true));
             publicationArray = arrayMaker(READFILENAME);
             if(publicationArray.length <= 1) {
                 //handle small file
                 System.out.println("File too small to have duplacates");
                 //
-                reader.close();
-                writer.close();
             }
             else {
                 //correctListOfItems();
                 printFileItems(fileToWrite);
-                reader.close();
             }
         } catch (FileNotFoundException ex) {
             System.out.println("The file " + READFILENAME + " is missing, please place it in \"src/Assignment2/\" and restart the program." + Arrays.toString(ex.getStackTrace()));
@@ -73,14 +67,14 @@ public class PublicationListingProcess1 {
                 for(int i = 0 ; i < array.length ; i++) {
                     for(int j = i + 1 ; j < array.length ; j++) {
                         if(array[i].getPublicationCode() == array[j].getPublicationCode()) {
-                            throw new CopyCodeException(i + " " + j);
+                            throw new CopyCodeException("Publication code no." + (j + 1) + " is the same as publication code no." + (i + 1), j);
                         }
                     }
                 }
                 break;
             } catch (CopyCodeException ex) {
-                    System.out.print("Publication code no." + (Integer.parseInt(ex.getCulprits()[1]) + 1) + " is the same as publication code no." + (Integer.parseInt(ex.getCulprits()[0]) + 1) + ", enter the new code > ");
-                    array[Integer.parseInt(ex.getCulprits()[1])].setPublicationCode(userInput.next());
+                    System.out.print(", enter the new code > ");
+                    array[ex.getToChange()].setPublicationCode(userInput.next());
                     userInput.nextLine();
             }
         }
@@ -100,15 +94,15 @@ public class PublicationListingProcess1 {
     }
     
     /**
-     * Returns the number of non-empty lines found in the inputted filename at the READPATH directory
+     * Returns the number of non-empty lines found in the inputted filename in the READPATH directory
      * 
-     * @param path
+     * @param name
      * @return
      * @throws FileNotFoundException
      * @throws IOException 
      */
-    private static int getLines(String path) throws FileNotFoundException, IOException {
-        BufferedReader input = new BufferedReader(new FileReader(READPATH + path));
+    private static int getLines(String name) throws FileNotFoundException, IOException {
+        BufferedReader input = new BufferedReader(new FileReader(READPATH + name));
         int nbPublications = 0;
         String line;
         while(true) {
@@ -157,6 +151,7 @@ public class PublicationListingProcess1 {
      */
     private static String[] split(String toSplit) {
         String allSpace = toSplit.trim().replace('\t', ' ').replace('\n', ' ');
+        //not sure if necessary
         String temp = "";
         for(int i = 0 ; i < allSpace.length() ; i++) {
             if(!(i > 0 && allSpace.charAt(i) == ' ' && allSpace.charAt(i-1) == ' ')) {
@@ -164,11 +159,28 @@ public class PublicationListingProcess1 {
             }
         }
         return temp.split(" ");
-        
     }
     
-    private static Publication[] publicationFormatter(Publication[] publications) {
-        
-        
+    /**
+     * Formats a Publication array for proper display on the console
+     * 
+     * @param array
+     * @return 
+     */
+    private static Publication[] publicationFormatter(Publication[] array) {
+        int[] largest = new int[6];
+        for(int i = 0 ; i < 6 ; i++) {
+            largest[i] = 0;
+            for(int j = 0 ; j < array.length ; j++) {
+                largest[i] = Math.max(array[j].get(i).length(), largest[i]);
+            }
+            largest[i]++;
+            for(int j = 0 ; j < array.length ; j++) {
+                for(int k = 0 ; k < (largest[i] - array[j].get(i).length()) ; k++) {
+                    array[j].set(i, array[j].get(i) + " ");
+                }
+            }
+        }
+        return array;
     }
 }

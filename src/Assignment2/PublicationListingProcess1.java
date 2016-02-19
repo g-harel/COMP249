@@ -9,7 +9,6 @@ import java.io.*;
 public class PublicationListingProcess1 {
     
     private final static Scanner userInput = new Scanner(System.in);
-    private static Publication[] publicationArray;
     private static final String READFILENAME = "PublicationData_Input.txt";
     private static final String READPATH = "src/Assignment2/";
     
@@ -25,6 +24,8 @@ public class PublicationListingProcess1 {
     }
     
     public static void main(String[] args) {
+        
+        Publication[] publicationArray;
         System.out.print("Specify the name of the output file > ");
         while(true) {
             fileToWrite = new File("src/Assignment2/" + userInput.next() + ".txt");
@@ -44,8 +45,12 @@ public class PublicationListingProcess1 {
                 //
             }
             else {
-                //correctListOfItems();
+                publicationArray = correctListOfItems(publicationArray);
                 printFileItems(fileToWrite);
+                System.out.println("Old file :\n");
+                printPublicationArray(publicationFormatter(arrayMaker(READFILENAME)));
+                System.out.println("\n\nNew file :\n");
+                printPublicationArray(publicationFormatter(publicationArray));
             }
         } catch (FileNotFoundException ex) {
             System.out.println("The file " + READFILENAME + " is missing, please place it in \"src/Assignment2/\" and restart the program." + Arrays.toString(ex.getStackTrace()));
@@ -59,9 +64,10 @@ public class PublicationListingProcess1 {
      * Checks that there are no duplicated publication codes in an array of Publication objects
      * 
      * @param array
+     * @return 
      * @throws IOException
      */
-    public static void correctListOfItems(Publication[] array) throws IOException {
+    public static Publication[] correctListOfItems(Publication[] array) throws IOException {
         while(true) {
             try {
                 for(int i = 0 ; i < array.length ; i++) {
@@ -78,6 +84,11 @@ public class PublicationListingProcess1 {
                     userInput.nextLine();
             }
         }
+        PrintWriter output = new PrintWriter(fileToWrite);
+        for(int i = 0 ; i < array.length ; i++) {
+            output.println(array[i].toString());
+        }
+        return array;
     }
     
     /**
@@ -148,7 +159,7 @@ public class PublicationListingProcess1 {
                                             Integer.parseInt(fileContent[2]), fileContent[3], 
                                             Double.parseDouble(fileContent[4]), Integer.parseInt(fileContent[5]));
             } catch (NumberFormatException ex) {
-                publicationArray[i] = new Publication();
+                array[i] = new Publication();
                 System.out.println("The format of publication no." + (i + 1) + " is incorrect and has been skipped");
             }
         }

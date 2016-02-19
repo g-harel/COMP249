@@ -94,6 +94,18 @@ public class PublicationListingProcess1 {
     }
     
     /**
+     * Prints the contents of an array of Publication objects and adds line numbers
+     * 
+     * @param array 
+     */
+    private static void printPublicationArray(Publication[] array) {
+        Publication[] formattedArray = publicationFormatter(array);
+        for(int i = 0 ; i < 0 ; i++) {
+            System.out.println((i + 1) + "." + ((i < 10)?" ":"") + formattedArray[i].toString());
+        }
+    }
+    
+    /**
      * Returns the number of non-empty lines found in the inputted filename in the READPATH directory
      * 
      * @param name
@@ -174,7 +186,6 @@ public class PublicationListingProcess1 {
             for(int j = 0 ; j < array.length ; j++) {
                 largest[i] = Math.max(array[j].get(i).length(), largest[i]);
             }
-            largest[i]++;
             for(int j = 0 ; j < array.length ; j++) {
                 for(int k = 0 ; k < (largest[i] - array[j].get(i).length()) ; k++) {
                     array[j].set(i, array[j].get(i) + " ");

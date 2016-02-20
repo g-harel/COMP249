@@ -2,8 +2,6 @@ package Assignment2;
 
 import java.util.*;
 import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 /**
  *
  * @author Gabriel
@@ -42,21 +40,17 @@ public class PublicationListingProcess1 {
             if(!(new File(READPATH + READFILENAME)).exists()) {
                 throw new FileNotFoundException(READFILENAME);
             }
-            Scanner oldFileInput = new Scanner(new File(READPATH + READFILENAME));
-            Scanner newFileInput = new Scanner(fileToWrite);
-            PrintWriter newFileOutput = new PrintWriter(new File(fileToWrite.getName()));
-            System.out.println("Connection to all files established");
-            if(false /*|| getLines(oldFileInput) <= 1*/) {
+            if(getLines(READPATH + READFILENAME) <= 1) {
                 //handle small file
                 System.out.println("File too small to have duplacates");
                 //
             }
             else {
-                correctListOfItems(oldFileInput, newFileOutput);
+                correctListOfItems(READPATH + READFILENAME, READPATH + fileToWrite.getName());
                 System.out.println("\nOld file :");
-                printFileItems(oldFileInput);
+                printFileItems(READPATH + READFILENAME);
                 System.out.println("\nNew file :");
-                printFileItems(newFileInput);
+                printFileItems(READPATH + fileToWrite.getName());
             }
         } catch (FileNotFoundException ex) {
             System.out.println("The file " + ex.getMessage() + " is missing, please place it in \"" + READPATH + "\" and restart the program." + Arrays.toString(ex.getStackTrace()));
@@ -69,13 +63,13 @@ public class PublicationListingProcess1 {
     /**
      * Checks that there are no duplicated publication codes in an array of Publication objects
      * 
-     * @param oldFileInput
-     * @param newFileOutput
+     * @param inputName
+     * @param outputName
      * @throws IOException
      */
-    public static void correctListOfItems(Scanner oldFileInput, PrintWriter newFileOutput) throws IOException {
+    public static void correctListOfItems(String inputName, String outputName) throws IOException {
         System.out.println();
-        Publication[] publicationArray = arrayMaker(oldFileInput);
+        Publication[] publicationArray = arrayMaker(inputName);
         while(true) {
             try {
                 for(int i = 0 ; i < publicationArray.length ; i++) {
@@ -92,8 +86,10 @@ public class PublicationListingProcess1 {
                     userInput.nextLine();
             }
         }
-        for (Publication i : publicationArray) {
-            newFileOutput.println(i.toString());
+        try(BufferedWriter output = new BufferedWriter(new FileWriter(outputName, true))) {
+            for (Publication i : publicationArray) {
+                output.write(i.toString() + "\n");
+            }
         }
     }
     
@@ -101,11 +97,19 @@ public class PublicationListingProcess1 {
      * Prints the contents of a file to the console
      * 
      * @param outputFile
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException, IOException
      */
-    private static void printFileItems(Scanner input) throws FileNotFoundException {
-        while(input.hasNextLine()) {
-            System.out.println(input.nextLine().trim());
+    private static void printFileItems(String inputName) throws FileNotFoundException, IOException {
+        try(BufferedReader reader = new BufferedReader(new FileReader(inputName))) {
+            String line;
+            while(true) {
+                line = reader.readLine();
+                if(line != null && !line.equals("")) {
+                    System.out.println(line);
+                    continue;
+                }
+                break;
+            } 
         }
     }
     
@@ -117,16 +121,20 @@ public class PublicationListingProcess1 {
      * @throws FileNotFoundException
      * @throws IOException 
      */
-    private static int getLines(Scanner input) throws FileNotFoundException, IOException {
-        int nbPublications = 0;
-        String line;
-        while(input.hasNextLine()) {
-            line = input.nextLine();
-            if (!line.equals("")) {
-                nbPublications++;
+    private static int getLines(String inputName) throws FileNotFoundException, IOException {
+        try(BufferedReader reader = new BufferedReader(new FileReader(inputName))) {
+            int nbPublications = 0;
+            String line;
+            while(true) {
+                line = reader.readLine();
+                if(line != null && !line.equals("")) {
+                    nbPublications++;
+                    continue;
+                }
+                break;
             }
+            return nbPublications;
         }
-        return nbPublications;
     }
     
     /**
@@ -137,24 +145,23 @@ public class PublicationListingProcess1 {
      * @throws FileNotFoundException
      * @throws IOException 
      */
-    private static Publication[] arrayMaker(Scanner input) throws FileNotFoundException, IOException{
-        Publication[] array = new Publication[getLines(input)];
-        System.out.println(array.length);
-        String[] fileContent;
-        for(int i = 0; i < array.length; i++) {
-            if(input.hasNextLine()) {
-                fileContent = split(input.nextLine()); 
+    private static Publication[] arrayMaker(String inputName) throws FileNotFoundException, IOException{
+        try(BufferedReader reader = new BufferedReader(new FileReader(inputName))) {
+            Publication[] array = new Publication[getLines(inputName)];
+            String[] fileContent;
+            for(int i = 0; i < array.length; i++) {
+                fileContent = split(reader.readLine()); 
                 try {    
-                    array[i] = new Publication(Long.parseLong(fileContent[0]), fileContent[1], 
-                                                Integer.parseInt(fileContent[2]), fileContent[3], 
+                    array[i] = new Publication(Long.parseLong(fileContent[0]), fileContent[1], Integer.parseInt(fileContent[2]), fileContent[3], 
                                                 Double.parseDouble(fileContent[4]), Integer.parseInt(fileContent[5]));
                 } catch (NumberFormatException ex) {
                     array[i] = new Publication();
                     System.out.println("The format of publication no." + (i + 1) + " is incorrect and has been skipped");
                 }
             }
+            return array;
         }
-        return array;
+        
     }
     
     /**
@@ -163,8 +170,7 @@ public class PublicationListingProcess1 {
      * @param toSplit
      * @return 
      */
-    private static String[] split(String toSplit) {
-        System.out.println(toSplit);
+    public static String[] split(String toSplit) {
         String allSpace = toSplit.trim().replace('\t', ' ').replace('\n', ' ');
         //not sure if necessary
         String temp = "";

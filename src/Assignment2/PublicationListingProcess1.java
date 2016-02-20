@@ -10,7 +10,7 @@ public class PublicationListingProcess1 {
     
     private final static Scanner userInput = new Scanner(System.in);
     private static final String READFILENAME = "PublicationData_Input.txt";
-    private static final String READPATH = "src/Assignment2/";
+    private static final String READPATH = "src/Assignment2/test_files/";
     
     private enum PublicationTypes{
         PUBLICATIONCODE,

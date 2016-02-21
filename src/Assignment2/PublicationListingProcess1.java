@@ -130,12 +130,12 @@ public class PublicationListingProcess1 {
     /**
      * Makes an array of Publications from the inputted filename in the READPATH directory
      * 
-     * @param name
+     * @param inputName
      * @return
      * @throws FileNotFoundException
      * @throws IOException 
      */
-    private static Publication[] arrayMaker(String inputName) throws FileNotFoundException, IOException{
+    public static Publication[] arrayMaker(String inputName) throws FileNotFoundException, IOException{
         try(BufferedReader reader = new BufferedReader(new FileReader(inputName))) {
             Publication[] array = new Publication[getLines(inputName)];
             String[] fileContent;

@@ -100,17 +100,7 @@ public class PublicationListingProcess1 {
      * @throws FileNotFoundException, IOException
      */
     private static void printFileItems(String inputName) throws FileNotFoundException, IOException {
-        try(BufferedReader reader = new BufferedReader(new FileReader(inputName))) {
-            String line;
-            while(true) {
-                line = reader.readLine();
-                if(line != null && !line.equals("")) {
-                    System.out.println(line);
-                    continue;
-                }
-                break;
-            } 
-        }
+        PublicationListingProcess2.printFileItems(inputName);
     }
     
     /**

@@ -25,25 +25,36 @@ public class PublicationListingProcess2 {
     }
     
     public static void main(String[] args) {
-        while(true) {    
-            System.out.println("Would you like to add any publications to the PublicationData_Ouput.txt (y/n) > ");
-            String answer = userInput.nextLine();
-            if(answer.equalsIgnoreCase("y")) {
-                try {
-                    insertRowsToFile(READPATH + READFILENAME);
-                } catch (FileNotFoundException ex) {
-                    System.out.println("File \"" + READFILENAME + "\" was not found, please place place it in \"" + READPATH + "\"");
-                } catch (IOException ex) {
-                    System.out.println("Something went wrong with the file!");
-                    System.out.println(ex.getMessage());
+        try {
+            while(true) {    
+                System.out.print("Would you like to add any publications to the PublicationData_Ouput.txt (y/n) > ");
+                String answer = userInput.nextLine();
+                if(answer.equalsIgnoreCase("y")) {
+                    try {
+                        insertRowsToFile(READPATH + READFILENAME);
+                    } catch (FileNotFoundException ex) {
+                        System.out.println("File \"" + READFILENAME + "\" was not found, please place place it in \"" + READPATH + "\"");
+                    } catch (IOException ex) {
+                        System.out.println("Something went wrong with the file!");
+                        System.out.println(ex.getMessage());
+                    }
+                }
+                else if(answer.equalsIgnoreCase("n")){
+                    break;
+                }
+                else {
+                    System.out.println("That is not one of the options.");
                 }
             }
-            else if(answer.equalsIgnoreCase("n")){
-                break;
-            }
-            else {
-                System.out.println("That is not one of the options.");
-            }
+            Publication[] publicationArray = PublicationListingProcess1.arrayMaker(READFILENAME);
+            int randomIndex = (int)(Math.random()*publicationArray.length);
+            binaryPublicationSearch(publicationArray, 0, publicationArray.length, publicationArray[randomIndex].getPublicationCode());
+            sequenrialPublicationSearch(publicationArray, 0, publicationArray.length, publicationArray[randomIndex].getPublicationCode());
+        } catch (FileNotFoundException ex) {
+            System.out.println("File \"" + READFILENAME + "\" was not found, please place place it in \"" + READPATH + "\"");
+        } catch (IOException ex) {
+            System.out.println("Something went wrong with the file!");
+            System.out.println(ex.getMessage());
         }
     }
     
@@ -85,11 +96,11 @@ public class PublicationListingProcess2 {
         }
     }
     
-    public void binaryPublicationSearch(Publication[] publications, int start, int end, int publicationCode) {
+    public static void binaryPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
         
     }
     
-    public void sequenrialPublicationSearch(Publication[] publications, int start, int end, int publicationCode) {
+    public static void sequenrialPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
         
     }
 }

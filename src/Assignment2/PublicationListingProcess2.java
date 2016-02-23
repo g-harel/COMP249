@@ -46,12 +46,18 @@ public class PublicationListingProcess2 {
                     System.out.println("That is not one of the options.");
                 }
             }
-            Publication[] publicationArray = PublicationListingProcess1.arrayMaker(READFILENAME);
-            int randomIndex = (int)(Math.random()*publicationArray.length);
-            binaryPublicationSearch(publicationArray, 0, publicationArray.length, publicationArray[randomIndex].getPublicationCode());
-            sequenrialPublicationSearch(publicationArray, 0, publicationArray.length, publicationArray[randomIndex].getPublicationCode());
+            Publication[] publicationArray = PublicationListingProcess1.arrayMaker(READPATH + READFILENAME);
+            System.out.print("Enter the publication number you wish to search for > ");
+            long toLookFor = userInput.nextLong();
+            long start = System.currentTimeMillis();
+            System.out.print("Publication code \"" + toLookFor + "\" has been found after " + binaryPublicationSearch(publicationArray, 0, publicationArray.length, toLookFor) + 
+                    " iterations using binary search");
+            long end = System.currentTimeMillis();
+            System.out.println(" and " + (end - start) + " milliseconds");
+            sequenrialPublicationSearch(publicationArray, 0, publicationArray.length, toLookFor);
         } catch (FileNotFoundException ex) {
             System.out.println("File \"" + READFILENAME + "\" was not found, please place place it in \"" + READPATH + "\"");
+            System.out.println(Arrays.toString(ex.getStackTrace()));
         } catch (IOException ex) {
             System.out.println("Something went wrong with the file!");
             System.out.println(ex.getMessage());
@@ -96,8 +102,17 @@ public class PublicationListingProcess2 {
         }
     }
     
-    public static void binaryPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
-        
+    public static int binaryPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
+        if(publicationCode > publications[(start + end)/2].getPublicationCode()) {
+            return 1 + binaryPublicationSearch(publications, (start + end)/2, end, publicationCode);
+        }
+        else if (publicationCode < publications[(start + end)/2].getPublicationCode()) {
+            return 1 + binaryPublicationSearch(publications, start, (start + end)/2, publicationCode);
+        }
+        else {
+            System.out.println(publications[(start + end)/2].toString());
+            return 1;
+        }
     }
     
     public static void sequenrialPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {

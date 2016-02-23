@@ -54,7 +54,11 @@ public class PublicationListingProcess2 {
                     " iterations using binary search");
             long end = System.currentTimeMillis();
             System.out.println(" and " + (end - start) + " milliseconds");
-            sequenrialPublicationSearch(publicationArray, 0, publicationArray.length, toLookFor);
+            start = System.currentTimeMillis();
+            System.out.print("Publication code \"" + toLookFor + "\" has been found after " + sequentialPublicationSearch(publicationArray, 0, publicationArray.length, toLookFor) + 
+                    " iterations using sequential search");
+            end = System.currentTimeMillis();
+            System.out.println(" and " + (end - start) + " milliseconds");
         } catch (FileNotFoundException ex) {
             System.out.println("File \"" + READFILENAME + "\" was not found, please place place it in \"" + READPATH + "\"");
             System.out.println(Arrays.toString(ex.getStackTrace()));
@@ -67,22 +71,22 @@ public class PublicationListingProcess2 {
     public static void insertRowsToFile(String outputName) throws FileNotFoundException, IOException {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(outputName, true))) {
             System.out.print("\tEnter the code > ");
-            writer.write(userInput.next());
+            writer.write("\n" + userInput.next() + " ");
             userInput.nextLine();
             System.out.print("\tEnter the name > ");
-            writer.write(userInput.next());
+            writer.write(userInput.next() + " ");
             userInput.nextLine();
             System.out.print("\tEnter the year > ");
-            writer.write(userInput.next());
+            writer.write(userInput.next() + " ");
             userInput.nextLine();
             System.out.print("\tEnter the author name > ");
-            writer.write(userInput.next());
+            writer.write(userInput.next() + " ");
             userInput.nextLine();
             System.out.print("\tEnter the cost > ");
-            writer.write(userInput.next());
+            writer.write(userInput.next() + " ");
             userInput.nextLine();
             System.out.print("\tEnter the number of pages > ");
-            writer.write(userInput.next() + "\n");
+            writer.write(userInput.next());
             userInput.nextLine();
             
         }
@@ -115,7 +119,13 @@ public class PublicationListingProcess2 {
         }
     }
     
-    public static void sequenrialPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
-        
+    public static int sequentialPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
+        if(publications[start].getPublicationCode() == publicationCode) {
+            System.out.println(publications[start].toString());
+            return 1;
+        }
+        else {
+            return 1 + sequentialPublicationSearch(publications, start + 1, end, publicationCode);
+        }
     }
 }

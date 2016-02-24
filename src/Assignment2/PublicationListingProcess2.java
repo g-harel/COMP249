@@ -12,6 +12,7 @@ public class PublicationListingProcess2 {
     private final static Scanner userInput = new Scanner(System.in);
     private static final String READFILENAME = "PublicationData_Output.txt";
     private static final String READPATH = "src/Assignment2/test_files/";
+    private static Publication[] publicationArray;
     
     private enum PublicationTypes{
         PUBLICATIONCODE,
@@ -24,18 +25,14 @@ public class PublicationListingProcess2 {
     
     public static void main(String[] args) {
         try {
+            //making an array from the file contents
+            publicationArray = PublicationListingProcess1.arrayMaker(READPATH + READFILENAME);
+            //asking user for more inputs if they want
             while(true) {    
                 System.out.print("Would you like to add any publications to the PublicationData_Ouput.txt (y/n) > ");
                 String answer = userInput.nextLine();
                 if(answer.equalsIgnoreCase("y")) {
-                    try {
-                        insertRowsToFile(READPATH + READFILENAME);
-                    } catch (FileNotFoundException ex) {
-                        System.out.println("File \"" + READFILENAME + "\" was not found, please place place it in \"" + READPATH + "\"");
-                    } catch (IOException ex) {
-                        System.out.println("Something went wrong with the file!");
-                        System.out.println(ex.getMessage());
-                    }
+                    insertRowsToFile(READPATH + READFILENAME);
                 }
                 else if(answer.equalsIgnoreCase("n")){
                     break;
@@ -44,61 +41,69 @@ public class PublicationListingProcess2 {
                     System.out.println("That is not one of the options.");
                 }
             }
-            Publication[] publicationArray = PublicationListingProcess1.arrayMaker(READPATH + READFILENAME);
+            //asking the user for the publication number they want to look for
             System.out.print("Enter the publication number you wish to search for > ");
             long toLookFor = userInput.nextLong();
+            //binary search call
             long start = System.currentTimeMillis();
             System.out.print("Publication code \"" + toLookFor + "\" has been found after " + binaryPublicationSearch(publicationArray, 0, publicationArray.length, toLookFor) + 
                     " iterations using binary search");
             long end = System.currentTimeMillis();
             System.out.println(" and " + (end - start) + " milliseconds");
+            //sequential search call
             start = System.currentTimeMillis();
             System.out.print("Publication code \"" + toLookFor + "\" has been found after " + sequentialPublicationSearch(publicationArray, 0, publicationArray.length, toLookFor) + 
                     " iterations using sequential search");
             end = System.currentTimeMillis();
             System.out.println(" and " + (end - start) + " milliseconds");
         } catch (FileNotFoundException ex) {
+            //error if the file is not found or doesn't exist
             System.out.println("File \"" + READFILENAME + "\" was not found, please place place it in \"" + READPATH + "\"");
             System.out.println(Arrays.toString(ex.getStackTrace()));
         } catch (IOException ex) {
+            //error for any other IO related exception
             System.out.println("Something went wrong with the file!");
             System.out.println(ex.getMessage());
         }
     }
     
     /**
-     * places 
+     * places another publication at the end of the publicationArray
      *
      * @param outputName
-     * @throws FileNotFoundException
-     * @throws IOException
      */
-    public static void insertRowsToFile(String outputName) throws FileNotFoundException, IOException {
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(outputName, true))) {
-            System.out.print("\tEnter the code > ");
-            writer.write("\n" + userInput.next() + " ");
-            userInput.nextLine();
-            System.out.print("\tEnter the name > ");
-            writer.write(userInput.next() + " ");
-            userInput.nextLine();
-            System.out.print("\tEnter the year > ");
-            writer.write(userInput.next() + " ");
-            userInput.nextLine();
-            System.out.print("\tEnter the author name > ");
-            writer.write(userInput.next() + " ");
-            userInput.nextLine();
-            System.out.print("\tEnter the cost > ");
-            writer.write(userInput.next() + " ");
-            userInput.nextLine();
-            System.out.print("\tEnter the number of pages > ");
-            writer.write(userInput.next());
-            userInput.nextLine();
-            
+    public static void insertRowsToFile(String outputName) {
+        //making an array of Publications one bigger than the original array and copying the values of the old one
+        Publication[] temp = new Publication[publicationArray.length + 1];
+        for(int i = 0 ; i < temp.length -  1 ; i++) {
+            temp[i] = publicationArray[i];
         }
+        //creating the new Publication and changing its values to the user's specifications
+        temp[temp.length - 1] = new Publication();
+        System.out.print("\tEnter the code > ");
+        temp[temp.length - 1].setPublicationCode(userInput.nextLong());
+        userInput.nextLine();
+        System.out.print("\tEnter the name > ");
+        temp[temp.length - 1].setPublicationName(userInput.next());
+        userInput.nextLine();
+        System.out.print("\tEnter the year > ");
+        temp[temp.length - 1].setPublicationYear(userInput.nextInt());
+        userInput.nextLine();
+        System.out.print("\tEnter the author name > ");
+        temp[temp.length - 1].setPublicationAuthorname(userInput.next());
+        userInput.nextLine();
+        System.out.print("\tEnter the cost > ");
+        temp[temp.length - 1].setPublicationCost(userInput.nextDouble());
+        userInput.nextLine();
+        System.out.print("\tEnter the number of pages > ");
+        temp[temp.length - 1].setPublicationPages(userInput.nextInt());
+        userInput.nextLine();
+        //setting the original array reference to the new one
+        publicationArray = temp;
     }
     
     /**
-     * prints out the contents of a file to the console
+     * prints out the contents of a text document to the console
      * 
      * @param inputName
      * @throws FileNotFoundException

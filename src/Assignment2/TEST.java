@@ -14,7 +14,7 @@ public class TEST {
     public static void main(String[] args) {
         //randomizes and orders the publication numbers of the file
         //for some reason the biggest number is always at the start, but that can be fixed manually and this is not the point of the assignment
-        if(/*CHANGE*/true/*THIS*/) {
+        if(/*CHANGE*/false/*THIS*/) {
             try {
                 int counter = 0;
                 Publication[] publications = PublicationListingProcess1.arrayMaker("src/Assignment2/test_files/PublicationData_Output.txt");

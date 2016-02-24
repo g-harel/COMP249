@@ -2,8 +2,6 @@ package Assignment2;
 
 import java.io.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -68,6 +66,13 @@ public class PublicationListingProcess2 {
         }
     }
     
+    /**
+     * places 
+     *
+     * @param outputName
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public static void insertRowsToFile(String outputName) throws FileNotFoundException, IOException {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(outputName, true))) {
             System.out.print("\tEnter the code > ");
@@ -92,6 +97,13 @@ public class PublicationListingProcess2 {
         }
     }
     
+    /**
+     * prints out the contents of a file to the console
+     * 
+     * @param inputName
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public static void printFileItems(String inputName) throws FileNotFoundException, IOException {
         try(BufferedReader reader = new BufferedReader(new FileReader(inputName))) {
             String line;
@@ -106,6 +118,15 @@ public class PublicationListingProcess2 {
         }
     }
     
+    /**
+     * searches the array using the binary search method
+     *
+     * @param publications
+     * @param start
+     * @param end
+     * @param publicationCode
+     * @return
+     */
     public static int binaryPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
         if(publicationCode > publications[(start + end)/2].getPublicationCode()) {
             return 1 + binaryPublicationSearch(publications, (start + end)/2, end, publicationCode);
@@ -119,6 +140,15 @@ public class PublicationListingProcess2 {
         }
     }
     
+    /**
+     * searches the array using the sequential search method
+     *
+     * @param publications
+     * @param start
+     * @param end
+     * @param publicationCode
+     * @return
+     */
     public static int sequentialPublicationSearch(Publication[] publications, int start, int end, long publicationCode) {
         if(publications[start].getPublicationCode() == publicationCode) {
             System.out.println(publications[start].toString());

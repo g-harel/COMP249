@@ -1,3 +1,15 @@
+// -------------------------------------------------------
+// Assignment 2
+// Written by: Gabriel Harel - 40006459
+// For COMP 249-UJ-X – Winter 2016
+// --------------------------------------------------------
+
+//this class is the first driver file of the assihnment
+//it will read a .txt file from a directory and make sure that there are no copy publication codes
+//if some duplicates are found, it will ask the user to chamge them
+//when all the codes are unique, it will write the corrected file to a user specified .txt file in the same directory
+//finally, it prints out both files to the console
+
 package Assignment2;
 
 import java.util.*;
@@ -22,6 +34,7 @@ public class PublicationListingProcess1 {
     }
     
     public static void main(String[] args) {
+        System.out.println("Welcome!");
         //asking user for output file name
         File fileToWrite;
         System.out.print("Specify the name of the output file > ");
@@ -63,6 +76,7 @@ public class PublicationListingProcess1 {
             System.out.println("Something went wrong with the file!");
             System.out.println(ex.getMessage());
         }
+        System.out.println("All done!");
     }
     
     /**

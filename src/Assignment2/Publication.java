@@ -1,3 +1,12 @@
+// -------------------------------------------------------
+// Assignment 2
+// Written by: Gabriel Harel - 40006459
+// For COMP 249-UJ-X – Winter 2016
+// --------------------------------------------------------
+
+//this class is intended to be used as an Object
+//it holds various information about publications and has some small added functionality when the code is not properly formatted
+
 package Assignment2;
 
 import java.util.Scanner;

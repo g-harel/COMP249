@@ -1,3 +1,15 @@
+// -------------------------------------------------------
+// Assignment 2
+// Written by: Gabriel Harel - 40006459
+// For COMP 249-UJ-X – Winter 2016
+// --------------------------------------------------------
+
+//this class is the second driver file of this assignment
+//it first reads the contents of a .txt file and offers the user the chance to add some publications
+//after the user is done writing entries, it asks the user for a publication code to look for
+//the array of publications is then searcher for this code using both sequential and binary search methods
+//for both searches, it will print the contents of that publication (to show it was found), how many recursive calls were needed and the time it took
+
 package Assignment2;
 
 import java.io.*;
@@ -24,6 +36,7 @@ public class PublicationListingProcess2 {
     }
     
     public static void main(String[] args) {
+        System.out.println("Welcome!");
         try {
             //making an array from the file contents
             publicationArray = PublicationListingProcess1.arrayMaker(READPATH + READFILENAME);
@@ -71,6 +84,7 @@ public class PublicationListingProcess2 {
             System.out.println("Something went wrong with the file!");
             System.out.println(ex.getMessage());
         }
+        System.out.println("All done!");
     }
     
     /**

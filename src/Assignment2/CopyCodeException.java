@@ -1,3 +1,11 @@
+// -------------------------------------------------------
+// Assignment 2
+// Written by: Gabriel Harel - 40006459
+// For COMP 249-UJ-X – Winter 2016
+// --------------------------------------------------------
+
+//this class is a child of the Exception class and is thrown when two publication codes are the same
+
 package Assignment2;
 
 /**

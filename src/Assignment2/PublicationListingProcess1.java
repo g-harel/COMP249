@@ -100,6 +100,8 @@ public class PublicationListingProcess1 {
                         }
                     }
                 }
+                //will only break if it has gone through the whole array without finding duplicates
+                //break is skipped if a duplicate was found and the loop will look for duplicates again (with the new value from the user)
                 break;
             } catch (CopyCodeException ex) {
                     //error if two codes are the same

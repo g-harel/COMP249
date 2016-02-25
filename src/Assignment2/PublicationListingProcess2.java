@@ -54,6 +54,7 @@ public class PublicationListingProcess2 {
                     System.out.println("That is not one of the options.");
                 }
             }
+            printFileItems(READPATH + READFILENAME);
             //asking the user for the publication number they want to look for
             System.out.print("Enter the publication number you wish to search for > ");
             long toLookFor = userInput.nextLong();
@@ -70,7 +71,7 @@ public class PublicationListingProcess2 {
             end = System.currentTimeMillis();
             System.out.println(" and " + (end - start) + " milliseconds");
             //printing to binary file
-            try(FileOutputStream out = new FileOutputStream(READPATH + "byteOut_" + READFILENAME.substring(0, READFILENAME.length() - 4) + ".dat", true)) {
+            try(FileOutputStream out = new FileOutputStream(READPATH + "Publications.dat", true)) {
                 for(Publication i : publicationArray) {
                     out.write((i.toString() + "\n").getBytes());
                 }

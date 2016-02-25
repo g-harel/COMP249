@@ -59,7 +59,7 @@ public class Publication {
     public void setPublicationPages(int publicationPages) {
         this.publicationPages = publicationPages;
     }
-    //this setter will ask the user over and over if the code is not a valid long
+    //this setter will ask the user over and over if the code is not a valid long type variable
     public void setPublicationCode(String publicationCode) {
         Scanner input = new Scanner(System.in);
         String temp = publicationCode;

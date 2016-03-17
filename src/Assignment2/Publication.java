@@ -16,19 +16,19 @@ import java.util.Scanner;
  * @author Gabriel
  */
 public class Publication {
-    
+
     private int publicationYear, publicationPages;
     private long publicationCode;
     private double publicationCost;
     private String publicationName, publicationAuthorName;
-    
+
     //default constructor
     public Publication() {
         this(0, "", 0, "", 0.0, 0);
     }
-    
+
     //constructor
-    public Publication(long publicationCode, String publicationName, int publicationYear, String publicationAuthorName, 
+    public Publication(long publicationCode, String publicationName, int publicationYear, String publicationAuthorName,
                         double publicationCost, int publicationPages) {
         this.publicationYear = publicationYear;
         this.publicationPages = publicationPages;
@@ -37,12 +37,12 @@ public class Publication {
         this.publicationName = publicationName;
         this.publicationAuthorName = publicationAuthorName;
     }
-    
+
     //prints the contents of the file
     public String toString() {
         return (getPublicationCode() + " " + getPublicationName() + " " + getPublicationYear() + " " + getPublicationAuthorName() + " " + getPublicationCost() + " " + getPublicationPages());
     }
-    
+
     //getter and setter methods
     public int getPublicationYear() {
         return publicationYear;
@@ -63,7 +63,7 @@ public class Publication {
     public void setPublicationCode(String publicationCode) {
         Scanner input = new Scanner(System.in);
         String temp = publicationCode;
-        while(true) {    
+        while(true) {
             try {
                 setPublicationCode(Long.parseLong(temp));
                 break;

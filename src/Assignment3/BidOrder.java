@@ -11,5 +11,10 @@ public class BidOrder extends Order{
     }
 
     public BidOrder() {
+        super();
+    }
+
+    public String toString() {
+        return "Bid :" + super.toString();
     }
 }

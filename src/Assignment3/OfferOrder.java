@@ -11,5 +11,10 @@ public class OfferOrder extends Order{
     }
 
     public OfferOrder() {
+        super();
+    }
+
+    public String toString() {
+        return "Offer :" + super.toString();
     }
 }

@@ -26,7 +26,7 @@ public class Order {
     }
 
     public String toString() {
-        return ("   " + Math.abs(this.price) + "   " + this.volume);
+        return ("  " + this.price /*+ "  " + this.volume*/);
     }
 
     public long getId() {

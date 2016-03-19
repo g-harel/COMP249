@@ -2,9 +2,6 @@ package Assignment3;
 
 import java.util.LinkedList;
 
-/**
- * Created by Gabriel on 2016-03-18.
- */
 public class OrderBook {
 
     private LinkedList<Order> orders;
@@ -21,12 +18,20 @@ public class OrderBook {
         System.out.println("adding  > " + ord.toString());
         if(orders.size() == 0) {
             orders.add(ord);
-        }
-        for(int i = 0; i < orders.size(); i++) {
-            if(ord.getPrice() >= (orders.get(i)).getPrice()) {
-                orders.add(i+1, ord);
-                setBest();
-                break;
+        } else if(ord.getPrice() < orders.getFirst().getPrice()) {
+            orders.addFirst(ord);
+            setBest();
+        } else if(ord.getPrice() > orders.getLast().getPrice()) {
+            orders.addLast(ord);
+            setBest();
+        } else {
+            for (int i = 0; i < orders.size(); i++) {
+                System.out.println("k");
+                if (ord.getPrice() < (orders.get(i)).getPrice()) {
+                    orders.add(i , ord);
+                    setBest();
+                    break;
+                }
             }
         }
     }
@@ -64,8 +69,11 @@ public class OrderBook {
     }
 
     public void setBest() {
+        System.out.println(bestOffer + " " + bestBid);
         for(int i = 0; i < orders.size(); i++) {
+            System.out.println("d");
             if(orders.get(i).getPrice() > 0) {
+                System.out.println("f");
                 this.bestOffer = i;
                 this.bestBid = i - 1;
                 break;

@@ -16,30 +16,26 @@ public class OrderBook {
 
     public void add(Order ord) {
         System.out.println("adding  > " + ord.toString());
-        if(orders.size() == 0) {
-            orders.add(ord);
-        } else if(ord.getPrice() < orders.getFirst().getPrice()) {
-            orders.addFirst(ord);
-            setBest();
-        } else if(ord.getPrice() > orders.getLast().getPrice()) {
+        if(orders.size() == 0 || ord.getPrice() > orders.getLast().getPrice()) {
             orders.addLast(ord);
-            setBest();
         } else {
             for (int i = 0; i < orders.size(); i++) {
-                System.out.println("k");
                 if (ord.getPrice() < (orders.get(i)).getPrice()) {
                     orders.add(i , ord);
-                    setBest();
                     break;
                 }
             }
         }
+        if(ord.getPrice() < 0) {
+            bestOffer++;
+        }
+        bestBid = Math.max(bestOffer - 1, 0);
+        System.out.println(bestBid + " " + bestOffer + orders.toString());
     }
 
     public void matchingEngine() {
         System.out.println("starting matching process");
         for(int i = this.bestOffer; i < orders.size(); i++) {
-            System.out.print("o");
             for(int j = 0; i < this.bestBid; i++) {
                 System.out.print("b" + i + " " + j);
                 if(orders.get(i).getPrice() <= orders.get(j).getPrice()) {
@@ -54,30 +50,14 @@ public class OrderBook {
 
     public void smash(int bid, int offer) {
         System.out.println("match processing");
-        //if offer >= bid smash number of bids from offers and delete bid object
         if(orders.get(offer).remove(orders.get(bid).getVolume())) {
-            //if offer is left at 0 after the removal, delete the offer object first (it is after the offer's index and therefore deleting won't change it)
             if(orders.get(offer).getVolume() == 0) {
                 orders.remove(offer);
             }
             orders.remove(bid);
-            //otherwise smash number of offers from bids and delete offer object
         } else {
             orders.get(bid).remove(orders.get(offer).getVolume());
             orders.remove(offer);
-        }
-    }
-
-    public void setBest() {
-        System.out.println(bestOffer + " " + bestBid);
-        for(int i = 0; i < orders.size(); i++) {
-            System.out.println("d");
-            if(orders.get(i).getPrice() > 0) {
-                System.out.println("f");
-                this.bestOffer = i;
-                this.bestBid = i - 1;
-                break;
-            }
         }
     }
 

@@ -15,12 +15,12 @@ public class OrderBook {
     }
 
     public void add(Order ord) {
-        System.out.println("adding  > " + ord.toString());
+        //System.out.print("  adding> " + ord.toString());
         if(orders.size() == 0 || ord.getPrice() > orders.getLast().getPrice()) {
             orders.addLast(ord);
         } else {
             for (int i = 0; i < orders.size(); i++) {
-                if (ord.getPrice() < (orders.get(i)).getPrice()) {
+                if (ord.getPrice() <= (orders.get(i)).getPrice()) {
                     orders.add(i , ord);
                     break;
                 }
@@ -29,39 +29,39 @@ public class OrderBook {
         if(ord.getPrice() < 0) {
             bestOffer++;
         }
-        bestBid = Math.max(bestOffer - 1, 0);
-        System.out.println(bestBid + " " + bestOffer + orders.toString());
+        System.out.println(" " + bestBid + " " + bestOffer + " " + orders.toString());
     }
 
     public void matchingEngine() {
-        System.out.println("starting matching process");
-        for(int i = this.bestOffer; i < orders.size(); i++) {
-            for(int j = 0; i < this.bestBid; i++) {
-                System.out.print("b" + i + " " + j);
-                if(orders.get(i).getPrice() <= orders.get(j).getPrice()) {
-                    System.out.println("match found");
-                    smash(j, i);
-                    matchingEngine();
-                    return;
+        //while best bid >= best offer and there are both offer types in the list
+        while(Math.abs(orders.get(bestBid).getPrice()) >= orders.get(bestOffer).getPrice() && bestBid != bestOffer && bestOffer != orders.size()) {
+            //System.out.println("...found match " + bestOffer);
+            //if amount of bids can be subtracted, do it
+            if(orders.get(bestOffer).subtract(orders.get(bestBid).getVolume())) {
+                //remove best offer if perfect match
+                if(orders.get(bestOffer).getVolume() == 0) {
+                    orders.remove(bestOffer);
                 }
+                //remove best bid and move the best offer pointer
+                orders.remove(bestBid);
+                this.bestOffer--;
+            //otherwise if best bids > best offers
+            } else {
+                orders.get(bestBid).subtract(orders.get(bestOffer).getVolume());
+                orders.remove(bestOffer);
             }
-        }
-    }
-
-    public void smash(int bid, int offer) {
-        System.out.println("match processing");
-        if(orders.get(offer).remove(orders.get(bid).getVolume())) {
-            if(orders.get(offer).getVolume() == 0) {
-                orders.remove(offer);
-            }
-            orders.remove(bid);
-        } else {
-            orders.get(bid).remove(orders.get(offer).getVolume());
-            orders.remove(offer);
         }
     }
 
     public String toString() {
-        return orders.toString();
+        String book = "Order Book :\n";
+        for (int i = orders.size() - 1; i >= this.bestOffer; i--) {
+            book += (orders.get(i).toString() + "\n");
+        }
+        book += "------------\n";
+        for (int i = 0; i < this.bestOffer; i++) {
+            book += (orders.get(i).toString() + "\n");
+        }
+        return book;
     }
 }

@@ -6,14 +6,13 @@ public class StockMarket {
     
     public static void main(String[] args) {
         System.out.println("starting");
-        book.add(new OfferOrder(123, 20.2, 33));
-        book.add(new OfferOrder(125, 21.0, 21));
-        book.add(new BidOrder(122, 21.0, 21));
-        book.add(new BidOrder(132, 10.0, 21));
-        book.add(new OfferOrder(111, 40.0, 10));
-        book.add(new BidOrder(999, 1.0, 122));
-        System.out.println(book.toString());
-        book.matchingEngine();
+        book.add(new BidOrder(1, 148, 75));
+        book.add(new BidOrder(1, 147, 200));
+        book.add(new BidOrder(1, 146.6, 100));
+        book.add(new BidOrder(1, 146.5, 50));
+        book.add(new OfferOrder(1, 155, 200));
+        book.add(new OfferOrder(1, 152.5, 120));
+        book.add(new OfferOrder(1, 152, 100));
         System.out.println(book.toString());
         System.out.println("done");
     }

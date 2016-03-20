@@ -16,9 +16,10 @@ public class Order {
         this(0,0,0);
     }
     
-    public boolean remove(int num) {
+    public boolean subtract(int num) {
         if(this.volume >= num) {
             this.volume -= num;
+            System.out.println("removing " + num + " from " + this.toString());
             return true;
         } else {
             return false;
@@ -26,7 +27,7 @@ public class Order {
     }
 
     public String toString() {
-        return ("  " + this.price /*+ "  " + this.volume*/);
+        return ("  $" + Math.abs(this.price) + "  x" + this.volume);
     }
 
     public long getId() {

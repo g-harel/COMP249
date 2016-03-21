@@ -18,8 +18,8 @@ public class Order {
     
     public boolean subtract(int num) {
         if(this.volume >= num) {
-            this.volume -= num;
             System.out.println("removing " + num + " from " + this.toString());
+            this.volume -= num;
             return true;
         } else {
             return false;
@@ -27,7 +27,7 @@ public class Order {
     }
 
     public String toString() {
-        return ("  $" + Math.abs(this.price) + "  x" + this.volume);
+        return (" $" + Math.abs(this.price) + " x" + this.volume);
     }
 
     public long getId() {

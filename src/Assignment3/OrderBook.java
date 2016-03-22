@@ -29,26 +29,21 @@ public class OrderBook {
                 }
             }
         }
-        if(ord.getPrice() < 0) {
+        if(ord instanceof BidOrder) {
             bestOffer++;
         }
         //System.out.println(" " + bestBid + " " + bestOffer + " " + orders.outputOrderBook());
     }
 
     public void matchingEngine() {
-        //while best bid >= best offer and there are both offer types in the list
         while(Math.abs(orders.get(bestBid).getPrice()) >= orders.get(bestOffer).getPrice() && bestBid != bestOffer && bestOffer != orders.size()) {
             System.out.print("\tMatch found : " + orders.get(bestBid) + "\n\t              " + orders.get(bestOffer) + " > ");
-            //if amount of bids can be subtracted, do it
             if(orders.get(bestOffer).subtract(orders.get(bestBid).getVolume())) {
-                //remove best offer if perfect match
                 if(orders.get(bestOffer).getVolume() == 0) {
                     orders.remove(bestOffer);
                 }
-                //remove best bid and move the best offer pointer
                 orders.remove(bestBid);
                 this.bestOffer--;
-            //otherwise if best bids > best offers
             } else {
                 orders.get(bestBid).subtract(orders.get(bestOffer).getVolume());
                 orders.remove(bestOffer);

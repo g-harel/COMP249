@@ -1,21 +1,24 @@
 package Assignment3;
 
-public class Order {
-    
+public class Order implements Anonymous{
+
     private long id;
     private double price;
     private int volume;
+
+    Order next;
+    Order prev;
 
     public Order(long id, double price, int volume) {
         this.id = id;
         this.price = price;
         this.volume = volume;
     }
-    
+
     public Order() {
         this(0,0,0);
     }
-    
+
     public boolean subtract(int num) {
         if(this.volume >= num) {
             System.out.println("removing " + num + " from " + this.toString());
@@ -28,6 +31,10 @@ public class Order {
 
     public String toString() {
         return (" $" + Math.abs(this.price) + " x" + this.volume);
+    }
+
+    public void printFullDetails() {
+
     }
 
     public long getId() {

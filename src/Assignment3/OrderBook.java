@@ -1,65 +1,96 @@
 package Assignment3;
 
+/**
+ * Doubly linked list data structure that holds a sorted list of Orders
+ */
 public class OrderBook {
 
+    //best bid/offer index
     private int bestBid;
     private int bestOffer;
+    //stores the toString of the tail Order added
     private String lastAdded;
-    private Node first;
-    private Node last;
+    //references to the head and tail elements of the doubly linked list
+    private Node head;
+    private Node tail;
 
-    OrderBook() {
+    /**
+     * default constructor, sets the best Orders to index 0 and connects both pointers
+     */
+    public OrderBook() {
         bestBid = 0;
         bestOffer = 0;
-        this.first = new Node();
-        this.last = new Node();
-        this.first.setNext(this.last);
-        this.last.setPrev(this.first);
+        this.head = new Node();
+        this.tail = new Node();
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
     }
 
+    /**
+     * adds an Order to the list while preserving the sorting
+     * @param ord
+     */
     public void add(Order ord) {
+        //storing the size at the start since it is used often in this method
         int size = size();
         System.out.println("\tAdding " + ord.toString());
+        //if it is the first element ro if the new Order's value is bigger than the last one, add it to the end
         if(size == 0 || ord.getPrice() > get(size - 1).getPrice()) {
             add(size, ord);
             lastAdded = ord.toString();
         } else {
-            for (int i = 0; i < size; i++) {
+            //find the first instance in the list of an Order's value being higher than the new one
+            for(int i = 0; i < size; i++) {
                 if (ord.getPrice() <= (get(i)).getPrice()) {
+                    //add it at that index (moving the rest of the values backwards) and break out of the loop
                     add(i , ord);
                     lastAdded = ord.toString();
                     break;
                 }
             }
         }
+        //if the new Order is of type Bid, increment the bestOffer pointer
         if(ord instanceof BidOrder) {
             bestOffer++;
         }
     }
 
+    /**
+     * finds matches between the bids and offers, and "merges" them
+     */
     public void matchingEngine() {
+        //if bid >= offer and the list has both at least one bid and/or one offer
         while(Math.abs(get(bestBid).getPrice()) >= get(bestOffer).getPrice() && bestBid != bestOffer && bestOffer != size()) {
             System.out.print("\tMatch found : " + get(bestBid) + "\n\t              " + get(bestOffer) + " > ");
+            //if the value of the offer >= value of the bid, subtract one from the other
             if(get(bestOffer).subtract(get(bestBid).getVolume())) {
+                //if the offer is left at having 0 volume left, remove it
                 if(get(bestOffer).getVolume() == 0) {
                     remove(bestOffer);
                 }
+                //remove bid and decrement the best bid index
                 remove(bestBid);
                 this.bestOffer--;
             } else {
+            //otherwise, subtract the offer from the bid and remove the offer
                 get(bestBid).subtract(get(bestOffer).getVolume());
                 remove(bestOffer);
             }
         }
     }
 
+    /**
+     * outputs a formatted version of this doubly linked list
+     */
     public void outputBook() {
         String book = "ORDER BOOK :\n";
         book += "======================\n";
+        //offers
         for (int i = size() - 1; i >= this.bestOffer; i--) {
             book += (get(i).toString() + "\n");
         }
         book += "----------------------\n";
+        //bids
         for (int i = 0; i < this.bestOffer; i++) {
             book += (get(i).toString() + "\n");
         }
@@ -67,105 +98,133 @@ public class OrderBook {
         System.out.println(book);
     }
 
+    /**
+     * outputs the best bid/offer
+     */
     public void outputBBO() {
         System.out.println("Best Bid & Offer :");
         System.out.println(get(bestBid).toString());
         System.out.println(get(bestOffer).toString());
     }
 
+    /**
+     * returns the last added String
+     * @return
+     */
     public String getLastAdded() {
         return lastAdded;
     }
 
+    /////////// LINKED LIST METHODS BELOW THIS POINT /////////////
     //////////////////////////////////////////////////////////////
 
-    public class Node {
-        Node prev;
-        Node next;
-        Order order;
+    //subclass of type node
+    private class Node {
+        //stores a reference to previous/next nodes
+        public Node prev;
+        public Node next;
+        //and a reference to the order it represents
+        public Order order;
 
+        //constructor when all the fields are provided
         public Node(Node prev, Node next, Order ord) {
             this.prev = prev;
             this.next = next;
             this.order = ord;
         }
 
+        //copy constructor
         public Node(Node node) {
             this.prev = node.prev;
             this.next = node.next;
             this.order = node.order;
         }
 
+        //default constructor sets everything to null
         public Node() {
-            this(null, null, new Order(-1,-1,-1));
-        }
-
-        public Order getOrder() {
-            return this.order;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public Node getPrev() {
-            return prev;
-        }
-
-        public void setNext(Node node) {
-            this.next = node;
-        }
-
-        public void setPrev(Node node) {
-            this.prev = node;
+            this(null, null, null);
         }
     }
 
-    public void add(int index, Order ord) {
+
+    /**
+     * adds a new Order (by using a node) to the list at the index specified as parameter
+     * @param index
+     * @param ord
+     */
+    private void add(int index, Order ord) {
+        //doesn't run if the index will cause a conflict
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (add)" + index);
         } else {
-            Node next = getNode(index + 1);
-            Node prev = next.getPrev();
+            //creates a new node that references forwards to the node previously at that index and backwards at the node at index - 1
+            Node next = getNode(index);
+            Node prev = next.prev;
             Node node = new Node(prev, next, ord);
-            prev.setNext(node);
-            next.setPrev(node);
+            //sets the relevant references of the nodes on either side of the new node to point to it
+            prev.next = node;
+            next.prev = node;
         }
     }
 
-    public void remove(int index) {
+    /**
+     * removes the node at the specified index
+     * @param index
+     */
+    private void remove(int index) {
+        //doesn't run if the index will cause a conflict
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (remove)" + index);
         } else {
-            Node temp = new Node(getNode(index + 1));
-            temp.getPrev().setNext(temp.getNext());
-            temp.getNext().setPrev(temp.getPrev());
+            //gets the node at the specified index
+            Node temp = new Node(getNode(index));
+            //removes the references to from the nodes on either side
+            temp.prev.next = temp.next;
+            temp.next.prev = temp.prev;
         }
     }
 
-    public int size() {
-        Node temp = first;
+    /**
+     * finds the current size of the list (while accounting for first and last null nodes)
+     * @return
+     */
+    private int size() {
+        //creates a node that will travel the list and a counter integer
+        Node temp = head;
         int counter = -1;
-        while(temp != last) {
+        //while the temp node is not yet at the end, increment the count and move to the next node
+        while(temp != tail) {
             counter++;
-            temp = temp.getNext();
+            temp = temp.next;
         }
         return counter;
     }
 
-    public Order get(int index) {
-        return getNode(index + 1).getOrder();
+    /**
+     * returns the Order referenced by the node at the specific index in the list
+     * @param index
+     * @return
+     */
+    private Order get(int index) {
+        return getNode(index).order;
     }
 
-    public Node getNode(int index) {
-        index--;
+    /**
+     * returns the node at the specific index
+     * @param index
+     * @return
+     */
+    private Node getNode(int index) {
+        //doesn't run if the index will cause a conflict
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (get)");
             return null;
         } else {
-            Node temp = first.getNext();
+            //creates a node to travel the list
+            Node temp = head.next;
+            //moves the temp node through the list "index" times
             for(int i = 1; i <= index; i++) {
-                temp = temp.getNext();
+                temp = temp.next;
             }
             return temp;
         }

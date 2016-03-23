@@ -1,30 +1,33 @@
 package Assignment3;
 
-import java.util.LinkedList;
-
 public class OrderBook {
 
-    private LinkedList<Order> orders;
     private int bestBid;
     private int bestOffer;
-    private Order last;
+    private String lastAdded;
+    private Node first;
+    private Node last;
 
     OrderBook() {
-        orders = new LinkedList<>();
         bestBid = 0;
         bestOffer = 0;
+        this.first = new Node();
+        this.last = new Node();
+        this.first.setNext(this.last);
+        this.last.setPrev(this.first);
     }
 
     public void add(Order ord) {
+        int size = size();
         System.out.println("\tAdding " + ord.toString());
-        if(orders.size() == 0 || ord.getPrice() > orders.getLast().getPrice()) {
-            orders.addLast(ord);
-            last = ord;
+        if(size == 0 || ord.getPrice() > get(size - 1).getPrice()) {
+            add(size, ord);
+            lastAdded = ord.toString();
         } else {
-            for (int i = 0; i < orders.size(); i++) {
-                if (ord.getPrice() <= (orders.get(i)).getPrice()) {
-                    orders.add(i , ord);
-                    last = ord;
+            for (int i = 0; i < size; i++) {
+                if (ord.getPrice() <= (get(i)).getPrice()) {
+                    add(i , ord);
+                    lastAdded = ord.toString();
                     break;
                 }
             }
@@ -32,21 +35,20 @@ public class OrderBook {
         if(ord instanceof BidOrder) {
             bestOffer++;
         }
-        //System.out.println(" " + bestBid + " " + bestOffer + " " + orders.outputOrderBook());
     }
 
     public void matchingEngine() {
-        while(Math.abs(orders.get(bestBid).getPrice()) >= orders.get(bestOffer).getPrice() && bestBid != bestOffer && bestOffer != orders.size()) {
-            System.out.print("\tMatch found : " + orders.get(bestBid) + "\n\t              " + orders.get(bestOffer) + " > ");
-            if(orders.get(bestOffer).subtract(orders.get(bestBid).getVolume())) {
-                if(orders.get(bestOffer).getVolume() == 0) {
-                    orders.remove(bestOffer);
+        while(Math.abs(get(bestBid).getPrice()) >= get(bestOffer).getPrice() && bestBid != bestOffer && bestOffer != size()) {
+            System.out.print("\tMatch found : " + get(bestBid) + "\n\t              " + get(bestOffer) + " > ");
+            if(get(bestOffer).subtract(get(bestBid).getVolume())) {
+                if(get(bestOffer).getVolume() == 0) {
+                    remove(bestOffer);
                 }
-                orders.remove(bestBid);
+                remove(bestBid);
                 this.bestOffer--;
             } else {
-                orders.get(bestBid).subtract(orders.get(bestOffer).getVolume());
-                orders.remove(bestOffer);
+                get(bestBid).subtract(get(bestOffer).getVolume());
+                remove(bestOffer);
             }
         }
     }
@@ -54,12 +56,12 @@ public class OrderBook {
     public void outputBook() {
         String book = "ORDER BOOK :\n";
         book += "======================\n";
-        for (int i = orders.size() - 1; i >= this.bestOffer; i--) {
-            book += (orders.get(i).toString() + "\n");
+        for (int i = size() - 1; i >= this.bestOffer; i--) {
+            book += (get(i).toString() + "\n");
         }
         book += "----------------------\n";
         for (int i = 0; i < this.bestOffer; i++) {
-            book += (orders.get(i).toString() + "\n");
+            book += (get(i).toString() + "\n");
         }
         book += "----------------------\n";
         System.out.println(book);
@@ -67,11 +69,105 @@ public class OrderBook {
 
     public void outputBBO() {
         System.out.println("Best Bid & Offer :");
-        System.out.println(orders.get(bestBid).toString());
-        System.out.println(orders.get(bestOffer).toString());
+        System.out.println(get(bestBid).toString());
+        System.out.println(get(bestOffer).toString());
     }
 
-    public String getLast() {
-        return last.toString();
+    public String getLastAdded() {
+        return lastAdded;
+    }
+
+    //////////////////////////////////////////////////////////////
+
+    public class Node {
+        Node prev;
+        Node next;
+        Order order;
+
+        public Node(Node prev, Node next, Order ord) {
+            this.prev = prev;
+            this.next = next;
+            this.order = ord;
+        }
+
+        public Node(Node node) {
+            this.prev = node.prev;
+            this.next = node.next;
+            this.order = node.order;
+        }
+
+        public Node() {
+            this(null, null, new Order(-1,-1,-1));
+        }
+
+        public Order getOrder() {
+            return this.order;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+
+        public Node getPrev() {
+            return prev;
+        }
+
+        public void setNext(Node node) {
+            this.next = node;
+        }
+
+        public void setPrev(Node node) {
+            this.prev = node;
+        }
+    }
+
+    public void add(int index, Order ord) {
+        if(index < 0 || index > size()) {
+            System.out.println("Error, index out of bounds (add)" + index);
+        } else {
+            Node next = getNode(index + 1);
+            Node prev = next.getPrev();
+            Node node = new Node(prev, next, ord);
+            prev.setNext(node);
+            next.setPrev(node);
+        }
+    }
+
+    public void remove(int index) {
+        if(index < 0 || index > size()) {
+            System.out.println("Error, index out of bounds (remove)" + index);
+        } else {
+            Node temp = new Node(getNode(index + 1));
+            temp.getPrev().setNext(temp.getNext());
+            temp.getNext().setPrev(temp.getPrev());
+        }
+    }
+
+    public int size() {
+        Node temp = first;
+        int counter = -1;
+        while(temp != last) {
+            counter++;
+            temp = temp.getNext();
+        }
+        return counter;
+    }
+
+    public Order get(int index) {
+        return getNode(index + 1).getOrder();
+    }
+
+    public Node getNode(int index) {
+        index--;
+        if(index < 0 || index > size()) {
+            System.out.println("Error, index out of bounds (get)");
+            return null;
+        } else {
+            Node temp = first.getNext();
+            for(int i = 1; i <= index; i++) {
+                temp = temp.getNext();
+            }
+            return temp;
+        }
     }
 }

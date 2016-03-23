@@ -5,9 +5,7 @@ import java.awt.*;
 
 public class OrderGenerator extends JFrame{
 
-    private JTextField price = new JTextField("Enter price here.", 34);
-    private JTextField volume = new JTextField("Enter volume here.", 34);
-    private JTextField name = new JTextField("Enter name here.", 34);
+    private  JTextField[] fields = {new JTextField("Enter price here.", 34), new JTextField("Enter volume here.", 34), new JTextField("Enter name here.", 34)};
     private JButton submit = new JButton("SUBMIT");
     private JButton reset = new JButton("RESET");
     private JLabel last = new JLabel("Last order : none");
@@ -16,12 +14,15 @@ public class OrderGenerator extends JFrame{
         super("Order Generator");
         this.setLayout(new FlowLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, 400);
+        this.setSize(400, 196);
         this.setResizable(false);
         setLocationRelativeTo(null);
-        add(price);
-        add(volume);
-        add(name);
+        add(fields[0]);
+        add(fields[1]);
+        add(fields[2]);
+        for(JTextField field : fields) {
+            field.setPreferredSize(new Dimension(380, 26));
+        }
         add(submit);
         submit.setPreferredSize(new Dimension(189, 26));
         add(reset);

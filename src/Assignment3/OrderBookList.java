@@ -20,11 +20,11 @@ public class OrderBookList {
     public void add(Order ord) {
         int size = size();
         System.out.println("\tAdding " + ord.toString());
-        if(size == 0 || ord.getPrice() > get(size).getPrice()) {
+        if(size == 0 || ord.getPrice() > get(size - 1).getPrice()) {
             add(size, ord);
             lastAdded = ord;
         } else {
-            for (int i = 1; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 if (ord.getPrice() <= (get(i)).getPrice()) {
                     add(i , ord);
                     lastAdded = ord;
@@ -125,7 +125,6 @@ public class OrderBookList {
 
     public void add(int index, Order ord) {
         //
-        System.out.println("add");
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (add)" + index);
         } else {
@@ -139,7 +138,6 @@ public class OrderBookList {
 
     public void remove(int index) {
         //
-        System.out.println("remove");
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (remove)" + index);
         } else {
@@ -151,7 +149,6 @@ public class OrderBookList {
 
     public int size() {
         //
-        System.out.println("size");
         return realSize(first) - 2;
     }
 
@@ -166,7 +163,6 @@ public class OrderBookList {
 
     public Order get(int index) {
         //
-        System.out.println("get");
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (get)" + index);
             return null;

@@ -20,20 +20,16 @@ public class StockMarket {
         //book.print();
        // System.out.println(book.get(1).getOrder().toString());
         System.out.println(book.size());*/
-        book.print();
         book.add(new BidOrder(1, 148, 75));
-        book.print();
         book.add(new BidOrder(1, 147, 200));
         book.add(new BidOrder(1, 146.6, 100));
         book.add(new BidOrder(1, 146.5, 50));
-        book.print();
-        /*book.add(new OfferOrder(1, 155, 200));
+        book.add(new OfferOrder(1, 155, 200));
         book.add(new OfferOrder(1, 152.5, 120));
         book.add(new OfferOrder(1, 152, 100));
-        book.add(new OfferOrder(1, 1, 200));
-        book.print();
-        //new OrderGenerator(book.getLastAdded());
+        book.add(new OfferOrder(1, 1, 700));
+        book.outputBBO();
         book.matchingEngine();
-        book.outputBook();*/
+        book.outputBook();
     }
 }

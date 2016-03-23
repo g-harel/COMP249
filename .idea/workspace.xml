@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d8db650-5a07-4044-aba7-2f7c019efe50" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Assignment3/Anonymous.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Assignment3/Node.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/Order.java" afterPath="$PROJECT_DIR$/src/Assignment3/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" afterPath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
     </list>
     <ignored path="Assignments.iws" />
@@ -33,7 +29,7 @@
     <favorites_list name="Assignments" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5528282">
+    <splitter split-orientation="horizontal" split-proportion="0.38313767">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Anonymous.java" pinned="false" current-in-tab="false">
@@ -49,8 +45,8 @@
           <file leaf-file-name="StockMarket.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+                <state relative-caret-position="394">
+                  <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -72,22 +68,22 @@
             <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBookList.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="2394">
-                  <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+                  <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
                   <folding>
-                    <element signature="e#2508#2509#0" expanded="true" />
-                    <element signature="e#2551#2552#0" expanded="true" />
-                    <element signature="e#3046#3047#0" expanded="true" />
-                    <element signature="e#3107#3108#0" expanded="true" />
-                    <element signature="e#3142#3143#0" expanded="true" />
-                    <element signature="e#3183#3184#0" expanded="true" />
-                    <element signature="e#3216#3217#0" expanded="true" />
-                    <element signature="e#3251#3252#0" expanded="true" />
-                    <element signature="e#3284#3285#0" expanded="true" />
-                    <element signature="e#3319#3320#0" expanded="true" />
-                    <element signature="e#3361#3362#0" expanded="true" />
-                    <element signature="e#3401#3402#0" expanded="true" />
-                    <element signature="e#3443#3444#0" expanded="true" />
-                    <element signature="e#3483#3484#0" expanded="true" />
+                    <element signature="e#2512#2513#0" expanded="true" />
+                    <element signature="e#2555#2556#0" expanded="true" />
+                    <element signature="e#3050#3051#0" expanded="true" />
+                    <element signature="e#3111#3112#0" expanded="true" />
+                    <element signature="e#3146#3147#0" expanded="true" />
+                    <element signature="e#3187#3188#0" expanded="true" />
+                    <element signature="e#3220#3221#0" expanded="true" />
+                    <element signature="e#3255#3256#0" expanded="true" />
+                    <element signature="e#3288#3289#0" expanded="true" />
+                    <element signature="e#3323#3324#0" expanded="true" />
+                    <element signature="e#3365#3366#0" expanded="true" />
+                    <element signature="e#3405#3406#0" expanded="true" />
+                    <element signature="e#3447#3448#0" expanded="true" />
+                    <element signature="e#3487#3488#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -127,8 +123,8 @@
           <file leaf-file-name="OrderBookList.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBookList.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+                <state relative-caret-position="100">
+                  <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
                   <folding>
                     <element signature="method#Node#0;class#Node#0;class#OrderBookList#0" expanded="false" />
                     <element signature="method#Node#1;class#Node#0;class#OrderBookList#0" expanded="false" />
@@ -171,8 +167,8 @@
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Node.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Order.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
       </list>
     </option>
   </component>
@@ -629,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1458541272888</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="made my own doubly linked list class to use instead of the one provided by java, not fully working yet">
+      <created>1458682077768</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1458682077768</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -653,7 +656,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33690986" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34978542" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34978542" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -724,7 +727,8 @@
     <MESSAGE value="variables bestBid and bestOffer now correctly keep track of the middlepoint" />
     <MESSAGE value="matching engine now works properly and made the toString methods their final form" />
     <MESSAGE value="made gui non-functioning gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="made gui non-functioning gui" />
+    <MESSAGE value="made my own doubly linked list class to use instead of the one provided by java, not fully working yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="made my own doubly linked list class to use instead of the one provided by java, not fully working yet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1290,16 +1294,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="394">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBookList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="100">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding>
             <element signature="method#Node#0;class#Node#0;class#OrderBookList#0" expanded="false" />
             <element signature="method#Node#1;class#Node#0;class#OrderBookList#0" expanded="false" />

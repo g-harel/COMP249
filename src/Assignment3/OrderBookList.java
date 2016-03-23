@@ -144,15 +144,13 @@ public class OrderBookList {
     }
 
     public int size() {
-        return realSize(first) - 2;
-    }
-
-    public int realSize(Node start) {
-        if(start == last) {
-            return 1;
-        } else {
-            return 1 + realSize(start.getNext());
+        Node temp = first;
+        int counter = -1;
+        while(temp != last) {
+            counter++;
+            temp = temp.next;
         }
+        return counter;
     }
 
     public Order get(int index) {

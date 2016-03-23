@@ -4,7 +4,6 @@
     <list default="true" id="4d8db650-5a07-4044-aba7-2f7c019efe50" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" afterPath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
     </list>
     <ignored path="Assignments.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +28,7 @@
     <favorites_list name="Assignments" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.38313767">
+    <splitter split-orientation="horizontal" split-proportion="0.28312302">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Anonymous.java" pinned="false" current-in-tab="false">
@@ -45,8 +44,8 @@
           <file leaf-file-name="StockMarket.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="394">
-                  <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+                <state relative-caret-position="250">
+                  <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -67,23 +66,24 @@
           <file leaf-file-name="OrderBookList.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBookList.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2394">
-                  <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+                <state relative-caret-position="2340">
+                  <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
                   <folding>
-                    <element signature="e#2512#2513#0" expanded="true" />
-                    <element signature="e#2555#2556#0" expanded="true" />
-                    <element signature="e#3050#3051#0" expanded="true" />
-                    <element signature="e#3111#3112#0" expanded="true" />
-                    <element signature="e#3146#3147#0" expanded="true" />
-                    <element signature="e#3187#3188#0" expanded="true" />
-                    <element signature="e#3220#3221#0" expanded="true" />
-                    <element signature="e#3255#3256#0" expanded="true" />
-                    <element signature="e#3288#3289#0" expanded="true" />
+                    <element signature="e#2359#2360#0" expanded="true" />
+                    <element signature="e#2402#2403#0" expanded="true" />
+                    <element signature="e#2886#2887#0" expanded="true" />
+                    <element signature="e#2947#2948#0" expanded="true" />
+                    <element signature="e#2982#2983#0" expanded="true" />
+                    <element signature="e#3023#3024#0" expanded="true" />
+                    <element signature="e#3056#3057#0" expanded="true" />
+                    <element signature="e#3091#3092#0" expanded="true" />
+                    <element signature="e#3124#3125#0" expanded="true" />
+                    <element signature="e#3159#3160#0" expanded="true" />
+                    <element signature="e#3201#3202#0" expanded="true" />
+                    <element signature="e#3241#3242#0" expanded="true" />
+                    <element signature="e#3283#3284#0" expanded="true" />
                     <element signature="e#3323#3324#0" expanded="true" />
-                    <element signature="e#3365#3366#0" expanded="true" />
-                    <element signature="e#3405#3406#0" expanded="true" />
-                    <element signature="e#3447#3448#0" expanded="true" />
-                    <element signature="e#3487#3488#0" expanded="true" />
+                    <marker date="1458700362264" expanded="true" signature="4801:5048" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -123,11 +123,15 @@
           <file leaf-file-name="OrderBookList.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBookList.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+                <state relative-caret-position="140">
+                  <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
                   <folding>
                     <element signature="method#Node#0;class#Node#0;class#OrderBookList#0" expanded="false" />
                     <element signature="method#Node#1;class#Node#0;class#OrderBookList#0" expanded="false" />
+                    <element signature="e#4093#4094#0" expanded="true" />
+                    <element signature="e#4135#4136#0" expanded="true" />
+                    <element signature="e#4342#4343#0" expanded="true" />
+                    <element signature="e#4394#4395#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -167,16 +171,15 @@
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Node.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Order.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="597" />
+    <option name="width" value="1330" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -632,7 +635,14 @@
       <option name="project" value="LOCAL" />
       <updated>1458682077768</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixed the add(int) method, everything seems to be functioning like with the LinkedList">
+      <created>1458698233463</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1458698233463</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -645,7 +655,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="597" y="0" width="1330" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -656,7 +666,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33690986" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34978542" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3531961" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -728,7 +738,8 @@
     <MESSAGE value="matching engine now works properly and made the toString methods their final form" />
     <MESSAGE value="made gui non-functioning gui" />
     <MESSAGE value="made my own doubly linked list class to use instead of the one provided by java, not fully working yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="made my own doubly linked list class to use instead of the one provided by java, not fully working yet" />
+    <MESSAGE value="fixed the add(int) method, everything seems to be functioning like with the LinkedList" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the add(int) method, everything seems to be functioning like with the LinkedList" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1294,19 +1305,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state relative-caret-position="250">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBookList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        <state relative-caret-position="140">
+          <caret line="159" column="5" selection-start-line="159" selection-start-column="5" selection-end-line="159" selection-end-column="5" />
           <folding>
             <element signature="method#Node#0;class#Node#0;class#OrderBookList#0" expanded="false" />
             <element signature="method#Node#1;class#Node#0;class#OrderBookList#0" expanded="false" />
+            <element signature="e#4093#4094#0" expanded="true" />
+            <element signature="e#4135#4136#0" expanded="true" />
+            <element signature="e#4342#4343#0" expanded="true" />
+            <element signature="e#4394#4395#0" expanded="true" />
           </folding>
         </state>
       </provider>

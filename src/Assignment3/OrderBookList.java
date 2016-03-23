@@ -11,8 +11,8 @@ public class OrderBookList {
     OrderBookList() {
         bestBid = 0;
         bestOffer = 0;
-        this.first = new Node(null, null, new Order(1,999,999));
-        this.last = new Node(null, null, new Order(2,999,999));
+        this.first = new Node();
+        this.last = new Node();
         this.first.setNext(this.last);
         this.last.setPrev(this.first);
     }
@@ -35,7 +35,6 @@ public class OrderBookList {
         if(ord instanceof BidOrder) {
             bestOffer++;
         }
-        //System.out.println(" " + bestBid + " " + bestOffer + " " + outputOrderBook());
     }
 
     public void matchingEngine() {
@@ -81,7 +80,6 @@ public class OrderBookList {
     //////////////////////////////////////////////////////////////
 
     public class Node {
-        //
         Node prev;
         Node next;
         Order order;
@@ -124,11 +122,10 @@ public class OrderBookList {
     }
 
     public void add(int index, Order ord) {
-        //
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (add)" + index);
         } else {
-            Node next = realGet(index + 1, first);
+            Node next = getNode(index + 1);
             Node prev = next.prev;
             Node node = new Node(prev, next, ord);
             prev.setNext(node);
@@ -137,23 +134,20 @@ public class OrderBookList {
     }
 
     public void remove(int index) {
-        //
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (remove)" + index);
         } else {
-            Node temp = new Node(realGet(index + 1, first));
+            Node temp = new Node(getNode(index + 1));
             temp.getPrev().setNext(temp.getNext());
             temp.getNext().setPrev(temp.getPrev());
         }
     }
 
     public int size() {
-        //
         return realSize(first) - 2;
     }
 
     public int realSize(Node start) {
-        //
         if(start == last) {
             return 1;
         } else {
@@ -162,26 +156,24 @@ public class OrderBookList {
     }
 
     public Order get(int index) {
-        //
+        return getNode(index + 1).getOrder();
+    }
+
+    public Node getNode(int index) {
+        index--;
         if(index < 0 || index > size()) {
-            System.out.println("Error, index out of bounds (get)" + index);
+            System.out.println("Error, index out of bounds (get)");
             return null;
         } else {
-            return realGet(index + 1, first).getOrder();
+            Node temp = first.next;
+            for(int i = 1; i <= index; i++) {
+                temp = temp.next;
+            }
+            return temp;
         }
     }
 
-    public Node realGet(int num, Node start) {
-        //
-        if(num == 0) {
-            return start;
-        } else {
-            return realGet(num - 1, start.getNext());
-        }
-    }
-
-    public void print() {
-        //
+    /*public void print() {
         String tt = "output > ";
         Node position = first;
         while(position != null) {
@@ -189,5 +181,5 @@ public class OrderBookList {
             position = position.next;
         }
         System.out.println(tt);
-    }
+    }*/
 }

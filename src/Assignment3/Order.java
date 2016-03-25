@@ -34,7 +34,7 @@ public class Order implements Anonymous{
     }
 
     public void printFullDetails() {
-
+        System.out.println(" id" + id + this.toString());
     }
 
     public long getId() {

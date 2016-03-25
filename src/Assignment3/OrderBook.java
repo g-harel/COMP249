@@ -35,13 +35,13 @@ public class OrderBook {
         int size = size();
         System.out.println("\tAdding " + ord.toString());
         //if it is the first element ro if the new Order's value is bigger than the last one, add it to the end
-        if(size == 0 || ord.getPrice() > get(size - 1).getPrice()) {
+        if(size == 0 || ord.getPrice() > get(size - 1).order.getPrice()) {
             add(size, ord);
             lastAdded = ord.toString();
         } else {
             //find the first instance in the list of an Order's value being higher than the new one
             for(int i = 0; i < size; i++) {
-                if (ord.getPrice() <= (get(i)).getPrice()) {
+                if (ord.getPrice() <= get(i).order.getPrice()) {
                     //add it at that index (moving the rest of the values backwards) and break out of the loop
                     add(i , ord);
                     lastAdded = ord.toString();
@@ -60,12 +60,12 @@ public class OrderBook {
      */
     public void matchingEngine() {
         //if bid >= offer and the list has both at least one bid and/or one offer
-        while(Math.abs(get(bestBid).getPrice()) >= get(bestOffer).getPrice() && bestBid != bestOffer && bestOffer != size()) {
+        while(Math.abs(get(bestBid).order.getPrice()) >= get(bestOffer).order.getPrice() && bestBid != bestOffer && bestOffer != size()) {
             System.out.print("\tMatch found : " + get(bestBid) + "\n\t              " + get(bestOffer) + " > ");
             //if the value of the offer >= value of the bid, subtract one from the other
-            if(get(bestOffer).subtract(get(bestBid).getVolume())) {
+            if(get(bestOffer).order.subtract(get(bestBid).order.getVolume())) {
                 //if the offer is left at having 0 volume left, remove it
-                if(get(bestOffer).getVolume() == 0) {
+                if(get(bestOffer).order.getVolume() == 0) {
                     remove(bestOffer);
                 }
                 //remove bid and decrement the best bid index
@@ -73,7 +73,7 @@ public class OrderBook {
                 this.bestOffer--;
             } else {
             //otherwise, subtract the offer from the bid and remove the offer
-                get(bestBid).subtract(get(bestOffer).getVolume());
+                get(bestBid).order.subtract(get(bestOffer).order.getVolume());
                 remove(bestOffer);
             }
         }
@@ -87,12 +87,12 @@ public class OrderBook {
         book += "======================\n";
         //offers
         for (int i = size() - 1; i >= this.bestOffer; i--) {
-            book += (get(i).toString() + "\n");
+            book += (get(i).order.toString() + "\n");
         }
         book += "----------------------\n";
         //bids
         for (int i = 0; i < this.bestOffer; i++) {
-            book += (get(i).toString() + "\n");
+            book += (get(i).order.toString() + "\n");
         }
         book += "----------------------\n";
         System.out.println(book);
@@ -103,8 +103,8 @@ public class OrderBook {
      */
     public void outputBBO() {
         System.out.println("Best Bid & Offer :");
-        System.out.println(get(bestBid).toString());
-        System.out.println(get(bestOffer).toString());
+        System.out.println(get(bestBid).order.toString());
+        System.out.println(get(bestOffer).order.toString());
     }
 
     /**
@@ -158,7 +158,7 @@ public class OrderBook {
             System.out.println("Error, index out of bounds (add)" + index);
         } else {
             //creates a new node that references forwards to the node previously at that index and backwards at the node at index - 1
-            Node next = getNode(index);
+            Node next = get(index);
             Node prev = next.prev;
             Node node = new Node(prev, next, ord);
             //sets the relevant references of the nodes on either side of the new node to point to it
@@ -177,7 +177,7 @@ public class OrderBook {
             System.out.println("Error, index out of bounds (remove)" + index);
         } else {
             //gets the node at the specified index
-            Node temp = new Node(getNode(index));
+            Node temp = new Node(get(index));
             //removes the references to from the nodes on either side
             temp.prev.next = temp.next;
             temp.next.prev = temp.prev;
@@ -201,20 +201,11 @@ public class OrderBook {
     }
 
     /**
-     * returns the Order referenced by the node at the specific index in the list
+     * returns the node at the specific index in the list
      * @param index
      * @return
      */
-    private Order get(int index) {
-        return getNode(index).order;
-    }
-
-    /**
-     * returns the node at the specific index
-     * @param index
-     * @return
-     */
-    private Node getNode(int index) {
+    private Node get(int index) {
         //doesn't run if the index will cause a conflict
         if(index < 0 || index > size()) {
             System.out.println("Error, index out of bounds (get)");

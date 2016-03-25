@@ -72,7 +72,7 @@ public class OrderBook {
                 remove(bestBid);
                 this.bestOffer--;
             } else {
-            //otherwise, subtract the offer from the bid and remove the offer
+                //otherwise, subtract the offer from the bid and remove the offer
                 get(bestBid).order.subtract(get(bestOffer).order.getVolume());
                 remove(bestOffer);
             }

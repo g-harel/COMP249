@@ -60,8 +60,8 @@ public class OrderBook {
      */
     public void matchingEngine() {
         //if bid >= offer and the list has both at least one bid and/or one offer
-        while(Math.abs(get(bestBid).order.getPrice()) >= get(bestOffer).order.getPrice() && bestBid != bestOffer && bestOffer != size()) {
-            System.out.print("\tMatch found : " + get(bestBid) + "\n\t              " + get(bestOffer) + " > ");
+        while(bestBid != bestOffer && bestOffer != size() && Math.abs(get(bestBid).order.getPrice()) >= get(bestOffer).order.getPrice()) {
+            System.out.print("\tMatch found : " + get(bestBid).order.toString() + "\n\t              " + get(bestOffer).order.toString() + " > ");
             //if the value of the offer >= value of the bid, subtract one from the other
             if(get(bestOffer).order.subtract(get(bestBid).order.getVolume())) {
                 //if the offer is left at having 0 volume left, remove it

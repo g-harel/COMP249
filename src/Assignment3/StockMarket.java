@@ -13,9 +13,10 @@ public class StockMarket {
         book.add(new OfferOrder(1, 152.5, 120));
         book.add(new OfferOrder(1, 152, 100));
         book.add(new OfferOrder(1, 1, 300));
-        book.outputBBO();
+        book.outputBook();
+        book.add(new BidOrder(1,11111,11111));
         book.matchingEngine();
         book.outputBook();
-        OrderGenerator window = new OrderGenerator(book.getLastAdded().toString());
+        //OrderGenerator window = new OrderGenerator(book);
     }
 }

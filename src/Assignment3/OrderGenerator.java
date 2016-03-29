@@ -2,6 +2,8 @@ package Assignment3;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class OrderGenerator extends JFrame{
 
@@ -10,7 +12,7 @@ public class OrderGenerator extends JFrame{
     private JButton reset = new JButton("RESET");
     private JLabel last = new JLabel("Last order : none");
 
-    public OrderGenerator(String last) {
+    public OrderGenerator(final OrderBook book) {
         super("Order Generator");
         this.setLayout(new FlowLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,12 +27,37 @@ public class OrderGenerator extends JFrame{
         }
         add(submit);
         submit.setPreferredSize(new Dimension(189, 26));
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(Integer.parseInt(fields[0].getText()) < 0) {
+                    book.add(new BidOrder(Long.parseLong(fields[2].getText()), Math.abs(Double.parseDouble(fields[0].getText())), Integer.parseInt(fields[1].getText())));
+                } else {
+                    book.add(new BidOrder(Long.parseLong(fields[2].getText()), Double.parseDouble(fields[0].getText()), Integer.parseInt(fields[1].getText())));
+                }
+                book.matchingEngine();
+                book.outputBook();
+                last.setText(book.getLastAdded());
+                reset();
+            }
+        });
         add(reset);
         reset.setPreferredSize(new Dimension(189, 26));
-        this.last.setText("Last order : " + last);
+        reset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reset();
+            }
+        });
+        this.last.setText("Last order : " + book.getLastAdded());
         this.last.setFont(new Font(this.last.getFont().getName(), Font.PLAIN, 22));
         add(this.last);
         this.setVisible(true);
     }
 
+    private void reset() {
+        for(JTextField field : fields) {
+            field.setText("");
+        }
+    }
 }

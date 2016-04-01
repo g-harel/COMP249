@@ -8,7 +8,7 @@ public class OrderBook {
     //best bid/offer index
     private int bestBid;
     private int bestOffer;
-    //stores the toString of the tail Order added
+    //stores the toString of the order that was last added
     private String lastAdded;
     //references to the head and tail elements of the doubly linked list
     private Node head;

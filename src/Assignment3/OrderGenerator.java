@@ -35,7 +35,7 @@ public class OrderGenerator extends JFrame{
                 } else {
                     book.add(new BidOrder(Long.parseLong(fields[2].getText()), Double.parseDouble(fields[0].getText()), Integer.parseInt(fields[1].getText())));
                 }
-                book.matchingEngine();
+                //book.matchingEngine();
                 book.outputBook();
                 last.setText(book.getLastAdded());
                 reset();

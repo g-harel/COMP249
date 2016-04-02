@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d8db650-5a07-4044-aba7-2f7c019efe50" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/BidOrder.java" afterPath="$PROJECT_DIR$/src/Assignment3/BidOrder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" afterPath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
     </list>
     <ignored path="Assignments.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,11 +58,11 @@
       <file leaf-file-name="OrderBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1908">
-              <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+            <state relative-caret-position="109">
+              <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
               <folding>
-                <element signature="e#5053#5054#0" expanded="true" />
-                <element signature="e#5099#5100#0" expanded="true" />
+                <element signature="e#5474#5475#0" expanded="true" />
+                <element signature="e#5520#5521#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -727,7 +724,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459520446227</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="changed structure of most methods in OrderBook for new format &lt;G3">
+      <created>1459570238964</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1459570238964</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -751,7 +755,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33690986" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38090128" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38090128" sideWeight="0.49786553" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -832,7 +836,8 @@
     <MESSAGE value="small comment formatting" />
     <MESSAGE value="fixed matching engine when offers were emptied and addded the actions to the buttons" />
     <MESSAGE value="commit before changing structure to better match the assignment G&lt;3" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit before changing structure to better match the assignment G&lt;3" />
+    <MESSAGE value="changed structure of most methods in OrderBook for new format &lt;G3" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed structure of most methods in OrderBook for new format &lt;G3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1289,11 +1294,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1908">
-          <caret line="29" column="49" selection-start-line="29" selection-start-column="49" selection-end-line="29" selection-end-column="49" />
+        <state relative-caret-position="109">
+          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
           <folding>
-            <element signature="e#5053#5054#0" expanded="true" />
-            <element signature="e#5099#5100#0" expanded="true" />
+            <element signature="e#5474#5475#0" expanded="true" />
+            <element signature="e#5520#5521#0" expanded="true" />
           </folding>
         </state>
       </provider>

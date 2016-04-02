@@ -32,18 +32,28 @@ public class OrderBook {
      */
     public Node add(Order ord) {
         System.out.println("\tAdding " + ord.toString());
-        Node temp = head;
-        while (temp.next != null) {
-            System.out.println("tempnext!=null");
-            if(ord.getPrice() > temp.order.getPrice()) {
-                System.out.println("adding");
-                Node node = new Node(temp, temp.next, ord);
-                temp.next = node;
-                temp.next.prev = node;
-                lastAdded = ord.toString();
-                break;
+        Node temp = head.next;
+        if(temp == tail || ord.getPrice() > temp.order.getPrice()) {
+            Node node = new Node(temp.prev, temp, ord);
+            temp.prev.next = node;
+            temp.prev = node;
+            lastAdded = ord.toString();
+        } else if(ord.getPrice() < tail.prev.order.getPrice()) {
+            temp = tail;
+            Node node = new Node(temp.prev, temp, ord);
+            temp.prev.next = node;
+            temp.prev = node;
+        } else {
+            while (temp.order != null) {
+                if (ord.getPrice() > temp.order.getPrice()) {
+                    Node node = new Node(temp.prev, temp, ord);
+                    temp.prev.next = node;
+                    temp.prev = node;
+                    lastAdded = ord.toString();
+                    break;
+                }
+                temp = temp.next;
             }
-            temp = temp.next;
         }
         outputBook();
         return temp.prev;
@@ -54,12 +64,11 @@ public class OrderBook {
      */
     public void matchingEngine(Order ord) {
         add(ord);
-        return;
         /*if(ord instanceof BidOrder) {
             if(bestBid == null) {
                 System.out.println("bestbidnulll");
                 bestBid = add(ord);
-            } else if (ord.getPrice() <= bestOffer.order.getPrice()) {
+            } else if (bestOffer != null && ord.getPrice() <= bestOffer.order.getPrice()) {
                 if(bestOffer.order.subtract(ord.getVolume())) {
                     if(bestOffer.order.getVolume() == 0) {
                         bestOffer = bestOffer.prev;
@@ -78,7 +87,7 @@ public class OrderBook {
             if(bestOffer == null) {
                 System.out.println("bestoffernull");
                 bestOffer = add(ord);
-            } else if (ord.getPrice() >= bestBid.order.getPrice()) {
+            } else if (bestBid != null && ord.getPrice() >= bestBid.order.getPrice()) {
                 if(bestBid.order.subtract(ord.getVolume())) {
                     if(bestBid.order.getVolume() == 0) {
                         bestBid = bestBid.next;
@@ -94,8 +103,7 @@ public class OrderBook {
                 add(ord);
             }
         }
-        outputBBO();
-        outputBook();*/
+        outputBBO();*/
     }
 
     /**
@@ -162,6 +170,26 @@ public class OrderBook {
         //default constructor sets everything to null
         public Node() {
             this(null, null, null);
+        }
+
+        public String toString() {
+            String gg = "";
+            if(prev == null || prev.order == null) {
+                gg += "null#";
+            } else {
+                gg += prev.order.toString() + "#";
+            }
+            if(order == null) {
+                gg += "null#";
+            } else {
+                gg += order.toString() + "#";
+            }
+            if(next == null || next.order == null) {
+                gg += "null#";
+            } else {
+                gg += next.order.toString() + "#";
+            }
+            return gg;
         }
     }
 

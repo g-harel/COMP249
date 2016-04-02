@@ -37,7 +37,7 @@ public class OrderGenerator extends JFrame{
                 }
                 //book.matchingEngine();
                 book.outputBook();
-                last.setText(book.getLastAdded());
+                last.setText("fix");
                 reset();
             }
         });
@@ -49,7 +49,7 @@ public class OrderGenerator extends JFrame{
                 reset();
             }
         });
-        this.last.setText("Last order : " + book.getLastAdded());
+        this.last.setText("Last order : " + "fix");
         this.last.setFont(new Font(this.last.getFont().getName(), Font.PLAIN, 22));
         add(this.last);
         this.setVisible(true);

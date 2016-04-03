@@ -51,10 +51,64 @@ public class OrderBook {
 
     public void matchingEngine(Order ord) {
         System.out.println("adding>" + ord.toString());
-        if(ord instanceof BidOrder) {
-            if(bestBid == null) {
-                bestBid = add(ord);
-            } else if(bestOffer != null && ord.getPrice() >= bestOffer.order.getPrice()) {
+        while(true) {
+            if(bestBid != null && bestBid.order == null) {
+                bestBid = null;
+            } else if(bestOffer != null && bestOffer.order == null) {
+                bestOffer = null;
+            }
+            if(ord instanceof BidOrder) {
+                if(bestBid == null) {
+                    bestBid = add(ord);
+                } else if(bestOffer == null) {
+                    if(ord.getPrice() > bestBid.order.getPrice()) {
+                        bestOffer = add(ord);
+                    } else {
+                        add(ord);
+                    }
+                } else if(ord.getPrice() >= bestOffer.order.getPrice()) {
+                    if(ord.getVolume() == bestOffer.order.getVolume()) {
+                        bestOffer = bestOffer.prev;
+                        remove(bestOffer.next);
+                    } else if(ord.subtract(bestOffer.order.getVolume())) {
+                        bestOffer = bestOffer.prev;
+                        remove(bestOffer.next);
+                        continue;
+                    } else {
+                        bestOffer.order.subtract(ord.getVolume());
+                    }
+                } else {
+                    add(ord);
+                }
+            } else {
+                if(bestOffer == null) {
+                    bestOffer = add(ord);
+                } else if(bestBid == null) {
+                    if(ord.getPrice() < bestOffer.order.getPrice()) {
+                        bestBid = add(ord);
+                    } else {
+                        add(ord);
+                    }
+                } else if(ord.getPrice() <= bestBid.order.getPrice()) {
+                    if(ord.getVolume() == bestBid.order.getVolume()) {
+                        bestBid = bestBid.prev;
+                        remove(bestBid.next);
+                    } else if(ord.subtract(bestBid.order.getVolume())) {
+                        bestBid = bestBid.prev;
+                        remove(bestBid.next);
+                        continue;
+                    } else {
+                        bestBid.order.subtract(ord.getVolume());
+                    }
+                } else {
+                    add(ord);
+                }
+            }
+            break;
+        }
+
+        /*if(ord instanceof BidOrder) {
+            if(bestOffer != null && ord.getPrice() >= bestOffer.order.getPrice()) {
                 if(bestOffer.order.subtract(ord.getVolume())) {
                     if(bestOffer.order.getVolume() == 0) {
                         bestOffer = bestOffer.prev;
@@ -70,6 +124,9 @@ public class OrderBook {
                         add(ord);
                     }
                 }
+            } else if(bestBid == null) {
+                System.out.println("pp");
+                bestBid = add(ord);
             } else {
                 if(ord.getPrice() > bestBid.order.getPrice()) {
                     bestBid = add(ord);
@@ -78,7 +135,7 @@ public class OrderBook {
                 }
             }
         } else {
-            if(bestOffer == null) {
+            if(bestOffer == null && !(head.next.order instanceof OfferOrder)) {
                 bestOffer = add(ord);
             } else if(bestBid != null && ord.getPrice() <= bestBid.order.getPrice()) {
                 if(bestBid.order.subtract(ord.getVolume())) {
@@ -103,12 +160,7 @@ public class OrderBook {
                     add(ord);
                 }
             }
-        }
-        if(bestBid != null && bestBid.order == null) {
-            bestBid = null;
-        } else if(bestOffer != null && bestOffer.order == null) {
-            bestOffer = null;
-        }
+        }*/
     }
 
     public void outputBook() {

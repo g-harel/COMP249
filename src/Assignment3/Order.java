@@ -20,7 +20,7 @@ public class Order implements Anonymous{
     }
 
     public boolean subtract(int num) {
-        if(this.volume >= num) {
+        if(this.volume > num) {
             System.out.println("removing " + num + " from " + this.toString());
             this.volume -= num;
             return true;

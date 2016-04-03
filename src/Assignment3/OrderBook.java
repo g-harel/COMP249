@@ -29,18 +29,17 @@ public class OrderBook {
      * @param ord
      */
     public Node add(Order ord) {
-        //System.out.println("\tAdding " + ord.toString());
         Node temp = head.next;
-        if(temp == tail || ord.getPrice() > temp.order.getPrice()) {
-            //do nothing
-        } else if(ord.getPrice() < tail.prev.order.getPrice()) {
-            temp = tail;
-        } else {
-            while (temp.order != null) {
-                if (ord.getPrice() > temp.order.getPrice()) {
-                    break;
+        if(!(temp == tail || ord.getPrice() > temp.order.getPrice())) {
+            if (ord.getPrice() < tail.prev.order.getPrice()) {
+                temp = tail;
+            } else {
+                while (temp.order != null) {
+                    if (ord.getPrice() > temp.order.getPrice()) {
+                        break;
+                    }
+                    temp = temp.next;
                 }
-                temp = temp.next;
             }
         }
         Node node = new Node(temp.prev, temp, ord);
@@ -50,117 +49,92 @@ public class OrderBook {
     }
 
     public void matchingEngine(Order ord) {
+        String code = "";
         System.out.println("adding>" + ord.toString());
         while(true) {
             if(bestBid != null && bestBid.order == null) {
+                code += "a";
                 bestBid = null;
             } else if(bestOffer != null && bestOffer.order == null) {
+                code += "b";
                 bestOffer = null;
             }
             if(ord instanceof BidOrder) {
-                if(bestBid == null) {
+                if(bestBid == null && bestOffer == null) {
+                    code += "c";
                     bestBid = add(ord);
                 } else if(bestOffer == null) {
                     if(ord.getPrice() > bestBid.order.getPrice()) {
-                        bestOffer = add(ord);
+                        code += "d";
+                        bestBid = add(ord);
                     } else {
+                        code += "e";
                         add(ord);
                     }
                 } else if(ord.getPrice() >= bestOffer.order.getPrice()) {
                     if(ord.getVolume() == bestOffer.order.getVolume()) {
+                        code += "f";
                         bestOffer = bestOffer.prev;
                         remove(bestOffer.next);
-                    } else if(ord.subtract(bestOffer.order.getVolume())) {
+                    } else if(ord.subtract(bestOffer.order)) {
+                        code += "g";
                         bestOffer = bestOffer.prev;
                         remove(bestOffer.next);
                         continue;
                     } else {
-                        bestOffer.order.subtract(ord.getVolume());
+                        code += "h";
+                        bestOffer.order.subtract(ord);
                     }
                 } else {
-                    add(ord);
+                    if(bestBid != null && ord.getPrice() > bestBid.order.getPrice()) {
+                        code += "j";
+                        bestBid = add(ord);
+                    } else {
+                        code += "s";
+                        add(ord);
+                    }
                 }
             } else {
-                if(bestOffer == null) {
+                if(bestOffer == null && bestBid == null) {
+                    code += "k";
                     bestOffer = add(ord);
                 } else if(bestBid == null) {
                     if(ord.getPrice() < bestOffer.order.getPrice()) {
-                        bestBid = add(ord);
+                        code += "l";
+                        bestOffer = add(ord);
                     } else {
+                        code += "m";
                         add(ord);
                     }
                 } else if(ord.getPrice() <= bestBid.order.getPrice()) {
                     if(ord.getVolume() == bestBid.order.getVolume()) {
-                        bestBid = bestBid.prev;
-                        remove(bestBid.next);
-                    } else if(ord.subtract(bestBid.order.getVolume())) {
-                        bestBid = bestBid.prev;
-                        remove(bestBid.next);
-                        continue;
-                    } else {
-                        bestBid.order.subtract(ord.getVolume());
-                    }
-                } else {
-                    add(ord);
-                }
-            }
-            break;
-        }
-
-        /*if(ord instanceof BidOrder) {
-            if(bestOffer != null && ord.getPrice() >= bestOffer.order.getPrice()) {
-                if(bestOffer.order.subtract(ord.getVolume())) {
-                    if(bestOffer.order.getVolume() == 0) {
-                        bestOffer = bestOffer.prev;
-                        remove(bestOffer.next);
-                    }
-                } else {
-                    ord.subtract(bestOffer.order.getVolume());
-                    bestOffer = bestOffer.prev;
-                    remove(bestOffer.next);
-                    if(bestOffer.order != null && bestBid.order != null) {
-                        matchingEngine(ord);
-                    } else {
-                        add(ord);
-                    }
-                }
-            } else if(bestBid == null) {
-                System.out.println("pp");
-                bestBid = add(ord);
-            } else {
-                if(ord.getPrice() > bestBid.order.getPrice()) {
-                    bestBid = add(ord);
-                } else {
-                    add(ord);
-                }
-            }
-        } else {
-            if(bestOffer == null && !(head.next.order instanceof OfferOrder)) {
-                bestOffer = add(ord);
-            } else if(bestBid != null && ord.getPrice() <= bestBid.order.getPrice()) {
-                if(bestBid.order.subtract(ord.getVolume())) {
-                    if(bestBid.order.getVolume() == 0) {
+                        code += "n";
                         bestBid = bestBid.next;
                         remove(bestBid.prev);
+                    } else if(ord.subtract(bestBid.order)) {
+                        code += "o";
+                        bestBid = bestBid.next;
+                        remove(bestBid.prev);
+                        continue;
+                    } else {
+                        code += "p";
+                        bestBid.order.subtract(ord);
                     }
                 } else {
-                    ord.subtract(bestBid.order.getVolume());
-                    bestBid = bestBid.next;
-                    remove(bestBid.prev);
-                    if(bestBid.order != null && bestOffer.order != null) {
-                        matchingEngine(ord);
+                    if(bestOffer != null && ord.getPrice() < bestOffer.order.getPrice()) {
+                        code += "q";
+                        bestOffer = add(ord);
                     } else {
+                        code += "r";
                         add(ord);
                     }
                 }
-            } else {
-                if(ord.getPrice() < bestOffer.order.getPrice()) {
-                    bestOffer = add(ord);
-                } else {
-                    add(ord);
-                }
             }
-        }*/
+            System.out.println(code);
+            break;
+        }
+        outputBook();
+        outputBBO();
     }
 
     public void outputBook() {

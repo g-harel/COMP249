@@ -19,10 +19,10 @@ public class Order implements Anonymous{
         this(0,0,0);
     }
 
-    public boolean subtract(int num) {
-        if(this.volume > num) {
-            System.out.println("removing " + num + " from " + this.toString());
-            this.volume -= num;
+    public boolean subtract(Order ord) {
+        if(this.volume > ord.getVolume()) {
+            System.out.println("removing " + ord.toString() + " from " + this.toString());
+            this.volume -= ord.getVolume();
             return true;
         } else {
             return false;

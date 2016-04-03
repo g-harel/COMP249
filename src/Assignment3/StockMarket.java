@@ -7,16 +7,16 @@ public class StockMarket {
     public static void main(String[] args) {
         book.matchingEngine(new BidOrder(1, 146.6, 100));
         book.matchingEngine(new BidOrder(1, 146.5, 50));
-        book.matchingEngine(new OfferOrder(1, 155, 200));
-        book.matchingEngine(new OfferOrder(1, 152.5, 120));
         book.matchingEngine(new BidOrder(1, 148, 75));
         book.matchingEngine(new BidOrder(1, 147, 200));
+        book.matchingEngine(new OfferOrder(1, 155, 200));
+        book.matchingEngine(new OfferOrder(1, 152.5, 120));
         book.matchingEngine(new OfferOrder(1, 152, 100));
-        book.outputBook();
+        //book.outputBook();
         book.matchingEngine(new OfferOrder(1, 1, 3000));
-        book.outputBook();
-        book.matchingEngine(new BidOrder(1,11111,11111));
-        book.outputBook();
+        //book.outputBook();
+        book.matchingEngine(new BidOrder(1,11111,11111111));
+        //book.outputBook();
         //OrderGenerator window = new OrderGenerator(book);
     }
 }

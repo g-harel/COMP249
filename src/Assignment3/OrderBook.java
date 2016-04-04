@@ -6,9 +6,7 @@ package Assignment3;
 public class OrderBook {
 
     //best bid/offer reference
-    private Node[] best;
-    private Node bestBid;
-    private Node bestOffer;
+    private Node[] best = new Node[2];
     //references to the head and tail elements of the doubly linked list
     private Node head;
     private Node tail;
@@ -17,8 +15,8 @@ public class OrderBook {
      * default constructor, connects the head and tail
      */
     public OrderBook() {
-        bestBid = null;
-        bestOffer = null;
+        best[0] = null;
+        best[1] = null;
         this.head = new Node();
         this.tail = new Node();
         this.head.next = this.tail;
@@ -53,49 +51,49 @@ public class OrderBook {
         outputBBO();
         System.out.println("\t[ adding > " + ord.toString());
         while(true) {
-            if(bestBid != null && bestBid.order == null) {
-                bestBid = null;
-            } else if(bestOffer != null && bestOffer.order == null) {
-                bestOffer = null;
+            if(best[0] != null && best[0].order == null) {
+                best[0] = null;
+            } else if(best[1] != null && best[1].order == null) {
+                best[1] = null;
             }
             if(ord instanceof BidOrder) {
-                if(bestBid == null && bestOffer == null) {
-                    bestBid = add(ord);
-                } else if(bestOffer != null && ord.getPrice() >= bestOffer.order.getPrice()) {
-                    if(ord.getVolume() == bestOffer.order.getVolume()) {
-                        bestOffer = bestOffer.prev;
-                        remove(bestOffer.next);
-                    } else if(ord.subtract(bestOffer.order)) {
-                        bestOffer = bestOffer.prev;
-                        remove(bestOffer.next);
+                if(best[0] == null && best[1] == null) {
+                    best[0] = add(ord);
+                } else if(best[1] != null && ord.getPrice() >= best[1].order.getPrice()) {
+                    if(ord.getVolume() == best[1].order.getVolume()) {
+                        best[1] = best[1].closest(1);
+                        remove(best[1].closest(0));
+                    } else if(ord.subtract(best[1].order)) {
+                        best[1] = best[1].closest(1);
+                        remove(best[1].closest(0));
                         continue;
                     } else {
-                        bestOffer.order.subtract(ord);
+                        best[1].order.subtract(ord);
                     }
                 } else {
-                    if(bestBid == null || (bestBid != null && ord.getPrice() > bestBid.order.getPrice())) {
-                        bestBid = add(ord);
+                    if(best[0] == null || (best[0] != null && ord.getPrice() > best[0].order.getPrice())) {
+                        best[0] = add(ord);
                     } else {
                         add(ord);
                     }
                 }
             } else {
-                if(bestOffer == null && bestBid == null) {
-                    bestOffer = add(ord);
-                } else if(bestBid != null && ord.getPrice() <= bestBid.order.getPrice()) {
-                    if(ord.getVolume() == bestBid.order.getVolume()) {
-                        bestBid = bestBid.next;
-                        remove(bestBid.prev);
-                    } else if(ord.subtract(bestBid.order)) {
-                        bestBid = bestBid.next;
-                        remove(bestBid.prev);
+                if(best[1] == null && best[0] == null) {
+                    best[1] = add(ord);
+                } else if(best[0] != null && ord.getPrice() <= best[0].order.getPrice()) {
+                    if(ord.getVolume() == best[0].order.getVolume()) {
+                        best[0] = best[0].closest(0);
+                        remove(best[0].closest(1));
+                    } else if(ord.subtract(best[0].order)) {
+                        best[0] = best[0].closest(0);
+                        remove(best[0].closest(1));
                         continue;
                     } else {
-                        bestBid.order.subtract(ord);
+                        best[0].order.subtract(ord);
                     }
                 } else {
-                    if(bestOffer == null || (bestOffer != null && ord.getPrice() < bestOffer.order.getPrice())) {
-                        bestOffer = add(ord);
+                    if(best[1] == null || (best[1] != null && ord.getPrice() < best[1].order.getPrice())) {
+                        best[1] = add(ord);
                     } else {
                         add(ord);
                     }
@@ -121,15 +119,15 @@ public class OrderBook {
 
     public void outputBBO() {
         System.out.print("\tBest Bid & Offer > ");
-        if(bestBid == null) {
+        if(best[0] == null) {
             System.out.print("\tbidnull");
         } else {
-            System.out.print("\t" + bestBid.order.toString());
+            System.out.print("\t" + best[0].order.toString());
         }
-        if(bestOffer == null) {
+        if(best[1] == null) {
             System.out.print("\toffnull");
         } else {
-            System.out.print("\t" + bestOffer.order.toString());
+            System.out.print("\t" + best[1].order.toString());
         }
         System.out.println();
     }
@@ -147,6 +145,10 @@ public class OrderBook {
 
         public Node() {
             this(null, null, null);
+        }
+
+        public Node closest(int i) {
+            return (i == 0)?next:prev;
         }
     }
 

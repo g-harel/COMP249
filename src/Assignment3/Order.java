@@ -21,7 +21,7 @@ public class Order implements Anonymous{
 
     public boolean subtract(Order ord) {
         if(this.volume > ord.getVolume()) {
-            System.out.println("removing " + ord.toString() + " from " + this.toString());
+            System.out.println("\t] removing " + ord.toString() + " from " + this.toString());
             this.volume -= ord.getVolume();
             return true;
         } else {

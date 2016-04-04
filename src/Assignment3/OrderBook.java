@@ -44,59 +44,54 @@ public class OrderBook {
         Node node = new Node(temp.prev, temp, ord);
         temp.prev.next = node;
         temp.prev = node;
+        System.out.println("\t[[ added > " + temp.prev.order.toString());
         return temp.prev;
     }
 
     public void matchingEngine(Order ord) {
         outputBBO();
         System.out.println("\t[ adding > " + ord.toString());
+        int zero, one;
+        if(ord instanceof BidOrder) {
+            zero = 1;
+            one = 0;
+        } else {
+            zero = 0;
+            one = 1;
+        }
         while(true) {
-            if(best[0] != null && best[0].order == null) {
-                best[0] = null;
-            } else if(best[1] != null && best[1].order == null) {
-                best[1] = null;
-            }
-            if(ord instanceof BidOrder) {
-                if(best[0] == null && best[1] == null) {
-                    best[0] = add(ord);
-                } else if(best[1] != null && ord.getPrice() >= best[1].order.getPrice()) {
-                    if(ord.getVolume() == best[1].order.getVolume()) {
-                        best[1] = best[1].closest(1);
-                        remove(best[1].closest(0));
-                    } else if(ord.subtract(best[1].order)) {
-                        best[1] = best[1].closest(1);
-                        remove(best[1].closest(0));
-                        continue;
-                    } else {
-                        best[1].order.subtract(ord);
-                    }
+//            if(best[0] != null && best[0].order == null) {
+//                System.out.println("DD");
+//                best[0] = null;
+//            } else if(best[1] != null && best[1].order == null) {
+//                System.out.println("PP");
+//                best[1] = null;
+//            }
+
+            if(best[one] == null && best[zero] == null) {
+                System.out.println("f");
+                best[one] = add(ord);
+            } else if(best[zero] != null && best[zero].order != null && (((-ord.getPrice() >= best[zero].order.getPrice())) && zero == 1) || ((ord.getPrice() <= -best[zero].order.getPrice()) && zero == 0)) {
+                if(ord.getVolume() == best[zero].order.getVolume()) {
+                    System.out.println("a");
+                    best[zero] = best[zero].closest(zero);
+                    remove(best[zero].closest(one));
+                } else if(ord.subtract(best[zero].order)) {
+                    System.out.println("b");
+                    best[zero] = best[zero].closest(zero);
+                    remove(best[zero].closest(one));
+                    continue;
                 } else {
-                    if(best[0] == null || (best[0] != null && ord.getPrice() > best[0].order.getPrice())) {
-                        best[0] = add(ord);
-                    } else {
-                        add(ord);
-                    }
+                    System.out.println("c");
+                    best[zero].order.subtract(ord);
                 }
             } else {
-                if(best[1] == null && best[0] == null) {
-                    best[1] = add(ord);
-                } else if(best[0] != null && ord.getPrice() <= best[0].order.getPrice()) {
-                    if(ord.getVolume() == best[0].order.getVolume()) {
-                        best[0] = best[0].closest(0);
-                        remove(best[0].closest(1));
-                    } else if(ord.subtract(best[0].order)) {
-                        best[0] = best[0].closest(0);
-                        remove(best[0].closest(1));
-                        continue;
-                    } else {
-                        best[0].order.subtract(ord);
-                    }
+                if(best[one] == null || (best[one] != null && ord.getPrice() < best[one].order.getPrice())) {
+                    System.out.println("d");
+                    best[one] = add(ord);
                 } else {
-                    if(best[1] == null || (best[1] != null && ord.getPrice() < best[1].order.getPrice())) {
-                        best[1] = add(ord);
-                    } else {
-                        add(ord);
-                    }
+                    System.out.println("e");
+                    add(ord);
                 }
             }
             break;
@@ -155,5 +150,6 @@ public class OrderBook {
     private void remove(Node temp) {
         temp.prev.next = temp.next;
         temp.next.prev = temp.prev;
+        System.out.println("\t]] removed > " + temp.order.toString());
     }
 }

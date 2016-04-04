@@ -15,6 +15,6 @@ public class BidOrder extends Order{
     }
 
     public double getPrice() {
-        return (super.getPrice());
+        return (-super.getPrice());
     }
 }

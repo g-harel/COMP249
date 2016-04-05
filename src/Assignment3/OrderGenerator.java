@@ -31,9 +31,9 @@ public class OrderGenerator extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(Integer.parseInt(fields[0].getText()) < 0) {
-                    book.add(new BidOrder(Long.parseLong(fields[2].getText()), Math.abs(Double.parseDouble(fields[0].getText())), Integer.parseInt(fields[1].getText())));
+                    book.matchingEngine(new BidOrder(Long.parseLong(fields[2].getText()), Math.abs(Double.parseDouble(fields[0].getText())), Integer.parseInt(fields[1].getText())));
                 } else {
-                    book.add(new BidOrder(Long.parseLong(fields[2].getText()), Double.parseDouble(fields[0].getText()), Integer.parseInt(fields[1].getText())));
+                    book.matchingEngine(new BidOrder(Long.parseLong(fields[2].getText()), Double.parseDouble(fields[0].getText()), Integer.parseInt(fields[1].getText())));
                 }
                 //book.matchingEngine();
                 book.outputBook();

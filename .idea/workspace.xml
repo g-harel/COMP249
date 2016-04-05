@@ -5,8 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/BidOrder.java" afterPath="$PROJECT_DIR$/src/Assignment3/BidOrder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OfferOrder.java" afterPath="$PROJECT_DIR$/src/Assignment3/OfferOrder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/Order.java" afterPath="$PROJECT_DIR$/src/Assignment3/Order.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" />
     </list>
     <ignored path="Assignments.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,7 +24,7 @@
     </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="C:\Users\Gabriel\Documents\COMP249" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="ExportToHTMLSettings">
@@ -51,8 +51,8 @@
       <file leaf-file-name="StockMarket.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+            <state relative-caret-position="288">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -61,14 +61,9 @@
       <file leaf-file-name="OrderBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="142" column="9" selection-start-line="142" selection-start-column="9" selection-end-line="146" selection-end-column="9" />
-              <folding>
-                <element signature="e#4635#4636#0" expanded="true" />
-                <element signature="e#4681#4682#0" expanded="true" />
-                <element signature="e#4719#4720#0" expanded="true" />
-                <element signature="e#4768#4769#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2414">
+              <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,12 +71,12 @@
       <file leaf-file-name="OrderGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+            <state relative-caret-position="324">
+              <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1901#2051#0" expanded="true" />
-                <element signature="e#2050#2051#0" expanded="true" />
+                <element signature="e#1923#2073#0" expanded="true" />
+                <element signature="e#2072#2073#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,13 +85,11 @@
       <file leaf-file-name="BidOrder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/BidOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+            <state relative-caret-position="216">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#235#236#0" expanded="true" />
                 <element signature="e#284#285#0" expanded="true" />
-                <element signature="e#316#317#0" expanded="true" />
-                <element signature="e#358#359#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,13 +98,11 @@
       <file leaf-file-name="OfferOrder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/OfferOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="180">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding>
                 <element signature="e#186#187#0" expanded="true" />
                 <element signature="e#209#210#0" expanded="true" />
-                <element signature="e#322#323#0" expanded="true" />
-                <element signature="e#363#364#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,11 +146,11 @@
         <option value="$PROJECT_DIR$/src/Assignment3/Anonymous.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Node.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/OfferOrder.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/BidOrder.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Order.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/BidOrder.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/OfferOrder.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
       </list>
     </option>
@@ -736,7 +727,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459743265568</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="reverting to lengthy code, no time to debug completely. problem seems to be in the best[] and changing it to be right, might try again at another time">
+      <created>1459784355978</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1459784355978</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -760,7 +758,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33690986" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35912487" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35912487" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -822,7 +820,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="removed files from netbeans, going to use intellij for now" />
     <MESSAGE value="fixed the class not found error" />
     <MESSAGE value="completed the macthing engine method, added toString to Order class and its subclasses and added some comments" />
     <MESSAGE value="OrderBook no longer extends LinkedList (horrible idea ot begin with), adding process not fully working" />
@@ -847,7 +844,8 @@
     <MESSAGE value="matching order engine seemingly working, will try to reduce amount of code &lt;G3" />
     <MESSAGE value="commit before combining the matching order process for both bids and offers &lt;G3" />
     <MESSAGE value="commit with method working with indexes 0 and 1, preparing to merge (again) &lt;G3" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit with method working with indexes 0 and 1, preparing to merge (again) &lt;G3" />
+    <MESSAGE value="reverting to lengthy code, no time to debug completely. problem seems to be in the best[] and changing it to be right, might try again at another time" />
+    <option name="LAST_COMMIT_MESSAGE" value="reverting to lengthy code, no time to debug completely. problem seems to be in the best[] and changing it to be right, might try again at another time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -883,8 +881,6 @@
           <folding>
             <element signature="e#186#187#0" expanded="true" />
             <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -896,8 +892,6 @@
           <folding>
             <element signature="e#235#236#0" expanded="true" />
             <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -933,8 +927,6 @@
           <folding>
             <element signature="e#186#187#0" expanded="true" />
             <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -946,8 +938,6 @@
           <folding>
             <element signature="e#235#236#0" expanded="true" />
             <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -983,8 +973,6 @@
           <folding>
             <element signature="e#186#187#0" expanded="true" />
             <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -996,8 +984,6 @@
           <folding>
             <element signature="e#235#236#0" expanded="true" />
             <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1033,8 +1019,6 @@
           <folding>
             <element signature="e#186#187#0" expanded="true" />
             <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1046,8 +1030,6 @@
           <folding>
             <element signature="e#235#236#0" expanded="true" />
             <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1083,8 +1065,6 @@
           <folding>
             <element signature="e#186#187#0" expanded="true" />
             <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1096,8 +1076,6 @@
           <folding>
             <element signature="e#235#236#0" expanded="true" />
             <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1133,8 +1111,6 @@
           <folding>
             <element signature="e#186#187#0" expanded="true" />
             <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1146,8 +1122,6 @@
           <folding>
             <element signature="e#235#236#0" expanded="true" />
             <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1263,47 +1237,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+        <state relative-caret-position="324">
+          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1901#2051#0" expanded="true" />
-            <element signature="e#2050#2051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/BidOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OfferOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#1923#2073#0" expanded="true" />
+            <element signature="e#2072#2073#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+        <state relative-caret-position="288">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/BidOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#235#236#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OfferOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#209#210#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1317,14 +1287,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="142" column="9" selection-start-line="142" selection-start-column="9" selection-end-line="146" selection-end-column="9" />
-          <folding>
-            <element signature="e#4635#4636#0" expanded="true" />
-            <element signature="e#4681#4682#0" expanded="true" />
-            <element signature="e#4719#4720#0" expanded="true" />
-            <element signature="e#4768#4769#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2414">
+          <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>

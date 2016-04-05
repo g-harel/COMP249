@@ -6,7 +6,8 @@ package Assignment3;
 public class OrderBook {
 
     //best bid/offer reference
-    private Node[] best = new Node[2];
+    private Node bestBid;
+    private Node bestOffer;
     //references to the head and tail elements of the doubly linked list
     private Node head;
     private Node tail;
@@ -15,10 +16,10 @@ public class OrderBook {
      * default constructor, connects the head and tail
      */
     public OrderBook() {
-        best[0] = null;
-        best[1] = null;
-        this.head = new Node();
-        this.tail = new Node();
+        bestBid = null;
+        bestOffer = null;
+        this.head = new Node(null, null, null);
+        this.tail = new Node(null, null, null);
         this.head.next = this.tail;
         this.tail.prev = this.head;
     }
@@ -27,12 +28,17 @@ public class OrderBook {
      * adds an Order to the list while preserving the biggest to lowest sorting
      * @param ord
      */
-    public Node add(Order ord) {
+    private Node add(Order ord) {
+        //creating a new reference to right after the head
         Node temp = head.next;
-        if(!(temp == tail || ord.getPrice() > temp.order.getPrice())) {
+        //if the list is empty skip this block
+        if(!(temp == tail)) {
+            //if the new order has the smallest value in the list, move temp to tail
             if (ord.getPrice() < tail.prev.order.getPrice()) {
                 temp = tail;
+            //in other cases
             } else {
+                //iterate through list and save the position where the new order starts being bigger than the previous ones
                 while (temp.order != null) {
                     if (ord.getPrice() > temp.order.getPrice()) {
                         break;
@@ -41,69 +47,113 @@ public class OrderBook {
                 }
             }
         }
+        //create a new node where temp was
         Node node = new Node(temp.prev, temp, ord);
+        //connect the nodes around temp to this new node
         temp.prev.next = node;
         temp.prev = node;
         System.out.println("\t[[ added > " + temp.prev.order.toString());
+        //return the new node for use in matching engine
         return temp.prev;
     }
 
+    /**
+     * attempts to match the order before adding it to the list
+     * @param ord
+     */
     public void matchingEngine(Order ord) {
         outputBBO();
         System.out.println("\t[ adding > " + ord.toString());
-        int zero, one;
-        if(ord instanceof BidOrder) {
-            zero = 1;
-            one = 0;
-        } else {
-            zero = 0;
-            one = 1;
-        }
+        //loops around if the order being added is bigger than the one it is matched with to match it to the next onder
         while(true) {
-//            if(best[0] != null && best[0].order == null) {
-//                System.out.println("DD");
-//                best[0] = null;
-//            } else if(best[1] != null && best[1].order == null) {
-//                System.out.println("PP");
-//                best[1] = null;
-//            }
-
-            if(best[one] == null && best[zero] == null) {
-                System.out.println("f");
-                best[one] = add(ord);
-            } else if(best[zero] != null && best[zero].order != null && (((-ord.getPrice() >= best[zero].order.getPrice())) && zero == 1) || ((ord.getPrice() <= -best[zero].order.getPrice()) && zero == 0)) {
-                if(ord.getVolume() == best[zero].order.getVolume()) {
-                    System.out.println("a");
-                    best[zero] = best[zero].closest(zero);
-                    remove(best[zero].closest(one));
-                } else if(ord.subtract(best[zero].order)) {
-                    System.out.println("b");
-                    best[zero] = best[zero].closest(zero);
-                    remove(best[zero].closest(one));
-                    continue;
+            //setting bestBid and bestOffer to null if they are equal to the tail and head nodes
+            //(the only nodes that do not have an order)
+            if(bestBid != null && bestBid.order == null) {
+                bestBid = null;
+            } else if(bestOffer != null && bestOffer.order == null) {
+                bestOffer = null;
+            }
+            //executing different code depending on te type of the order
+            if(ord instanceof BidOrder) {
+                //if this is the first element to be added > add and set to best
+                if(bestBid == null && bestOffer == null) {
+                    bestBid = add(ord);
+                //if there is at least one of the other type and the order is "compatible" with it
+                } else if(bestOffer != null && ord.getPrice() >= bestOffer.order.getPrice()) {
+                    //if the two orders cancel each other out perfectly
+                    if(ord.getVolume() == bestOffer.order.getVolume()) {
+                        bestOffer = bestOffer.prev;
+                        remove(bestOffer.next);
+                    //if ord is not completely used, but not the best of opposite type
+                    } else if(ord.subtract(bestOffer.order)) {
+                        //>move bestOffer reference and remove the old best offer
+                        bestOffer = bestOffer.prev;
+                        remove(bestOffer.next);
+                        //loop again
+                        continue;
+                    //if order is completely used
+                    } else {
+                        bestOffer.order.subtract(ord);
+                    }
+                //if the new order is not "compatible" with any order in the book
                 } else {
-                    System.out.println("c");
-                    best[zero].order.subtract(ord);
+                    //if it is better than the old best, or the first of its type > add and set as best
+                    if(bestBid == null || (bestBid != null && ord.getPrice() > bestBid.order.getPrice())) {
+                        bestBid = add(ord);
+                    //>add to list
+                    } else {
+                        add(ord);
+                    }
                 }
             } else {
-                if(best[one] == null || (best[one] != null && ord.getPrice() < best[one].order.getPrice())) {
-                    System.out.println("d");
-                    best[one] = add(ord);
+                //if this is the first element to be added > add and set to best
+                if(bestOffer == null && bestBid == null) {
+                    bestOffer = add(ord);
+                //if there is at least one of the other type and the order is "compatible" with it
+                } else if(bestBid != null && ord.getPrice() <= bestBid.order.getPrice()) {
+                    //if the two orders cancel each other out perfectly
+                    if(ord.getVolume() == bestBid.order.getVolume()) {
+                        bestBid = bestBid.next;
+                        remove(bestBid.prev);
+                    //if ord is not completely used, but not the best of opposite type
+                    } else if(ord.subtract(bestBid.order)) {
+                        //>move bestBid reference and remove the old best offer
+                        bestBid = bestBid.next;
+                        remove(bestBid.prev);
+                        //loop again
+                        continue;
+                    //if order is completely used
+                    } else {
+                        bestBid.order.subtract(ord);
+                    }
+                //if the new order is not "compatible" with any order in the book
                 } else {
-                    System.out.println("e");
-                    add(ord);
+                    //if it is better than the old best, or the first of its type > add and set as best
+                    if(bestOffer == null || (bestOffer != null && ord.getPrice() < bestOffer.order.getPrice())) {
+                        bestOffer = add(ord);
+                        //>add to list
+                    } else {
+                        add(ord);
+                    }
                 }
             }
+            //breaking the loop in all cases except when "continue" is used
             break;
         }
+        //showing the book after adding the new order
         outputBook();
     }
 
+    /**
+     * outputs the the OrderBook to console with some formatting
+     */
     public void outputBook() {
         Node temp = head.next;
         System.out.println("ORDER BOOK :\n======================");
+        //going through the list
         while(temp.next != null) {
             System.out.println(temp.order.toString());
+            //adding a divider between order types
             if(temp.order instanceof OfferOrder && temp.next.order instanceof BidOrder) {
                 System.out.println(">--------------------<");
             }
@@ -112,41 +162,48 @@ public class OrderBook {
         System.out.println("----------------------");
     }
 
+    /**
+     * outputs the best bid and best offer
+     */
     public void outputBBO() {
         System.out.print("\tBest Bid & Offer > ");
-        if(best[0] == null) {
+        //different output if the reference is null
+        if(bestBid == null) {
             System.out.print("\tbidnull");
         } else {
-            System.out.print("\t" + best[0].order.toString());
+            System.out.print("\t" + bestBid.order.toString());
         }
-        if(best[1] == null) {
+        //different output if the reference is null
+        if(bestOffer == null) {
             System.out.print("\toffnull");
         } else {
-            System.out.print("\t" + best[1].order.toString());
+            System.out.print("\t" + bestOffer.order.toString());
         }
         System.out.println();
     }
 
+    /**
+     * inner class node, an element of the doubly linked list that wraps an Order object
+     */
     private class Node {
+        //pointers to nodes on either side in the list
         public Node prev;
         public Node next;
+        //pointer to its order
         public Order order;
 
+        //constructor
         public Node(Node prev, Node next, Order ord) {
             this.prev = prev;
             this.next = next;
             this.order = ord;
         }
-
-        public Node() {
-            this(null, null, null);
-        }
-
-        public Node closest(int i) {
-            return (i == 0)?next:prev;
-        }
     }
 
+    /**
+     * removes a node from the list
+     * @param temp
+     */
     private void remove(Node temp) {
         temp.prev.next = temp.next;
         temp.next.prev = temp.prev;

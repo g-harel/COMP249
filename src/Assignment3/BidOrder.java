@@ -13,8 +13,4 @@ public class BidOrder extends Order{
     public String toString() {
         return "Bid :" + super.toString();
     }
-
-    public double getPrice() {
-        return (-super.getPrice());
-    }
 }

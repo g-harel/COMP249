@@ -69,7 +69,7 @@ public class OrderBook implements Anonymous{
      */
     public void matchingEngine(Order ord) {
         System.out.println("\t[ adding > " + ord.toString());
-        //loops around if the order being added is bigger than the one it is matched with to match it to the next onder
+        //loops around if the order being added has bigger volume than the one it is matched with to match it to the next onder
         while(true) {
             //setting bestBid and bestOffer to null if they are equal to the tail and head nodes
             //(the only nodes that do not have an order)

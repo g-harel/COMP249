@@ -6,16 +6,30 @@ public class Order implements Anonymous{
     private double price;
     private int volume;
 
+    /**
+     * constructor
+     * @param id
+     * @param price
+     * @param volume
+     */
     public Order(String id, double price, int volume) {
         this.id = id;
         this.price = price;
         this.volume = volume;
     }
 
+    /**
+     * default constructor
+     */
     public Order() {
         this("",0,0);
     }
 
+    /**
+     * returns true and subtracts the volume of the parameter to this object's volume if it is bigger
+     * @param ord
+     * @return
+     */
     public boolean subtract(Order ord) {
         if(this.volume > ord.getVolume()) {
             System.out.println("\t] subtracting " + ord.toString() + " from " + this.toString());
@@ -34,6 +48,7 @@ public class Order implements Anonymous{
         System.out.println(" id: " + id + " > " + this.toString());
     }
 
+    //getters and setters
     public String getId() {
         return id;
     }

@@ -15,6 +15,7 @@ public class StockMarket {
 //        book.matchingEngine(new OfferOrder("l", 10, 1));
 //        book.outputBBO();
 
+//test over 50 offers
 //        for(int i = 0; i < 50; i++) {
 //            System.out.println((int)(i/100.0*100) + "%");
 //            boolean bool = (Math.random() > 0.5)?true:false;
@@ -25,6 +26,7 @@ public class StockMarket {
 //            }
 //        }
 
+//test over 100 000 offers
 //        for(int i = 0; i < 100000; i++) {
 //            System.out.println((int)(i/100000.0*100) + "%");
 //            boolean bool = (Math.random() > 0.5)?true:false;

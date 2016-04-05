@@ -3,7 +3,7 @@ package Assignment3;
 /**
  * Doubly linked list data structure that holds a sorted list of Orders
  */
-public class OrderBook {
+public class OrderBook implements Anonymous{
 
     //best bid/offer reference
     private Node bestBid;
@@ -31,6 +31,12 @@ public class OrderBook {
     private Node add(Order ord) {
         //creating a new reference to right after the head
         Node temp = head.next;
+        //starts at the best bid if the order is a bid (since we know it is bigger than all offers)
+        //this block cuts about 7% of execution time on 40 000 operations and about 30% on 400 000 operations
+        //tested on randomly added bids/offers with prices from 0 to 200 and volumes between 0 and 1000 using Math.random
+        if(ord instanceof BidOrder && bestBid != null) {
+            temp = bestBid;
+        }
         //if the list is empty skip this block
         if(!(temp == tail)) {
             //if the new order has the smallest value in the list, move temp to tail
@@ -40,7 +46,7 @@ public class OrderBook {
             } else {
                 //iterate through list and save the position where the new order starts being bigger than the previous ones
                 while (temp.order != null) {
-                    if (ord.getPrice() > temp.order.getPrice()) {
+                    if (ord.getPrice() > temp.order.getPrice() || (ord instanceof BidOrder && ord.getPrice() == bestBid.order.getPrice())) {
                         break;
                     }
                     temp = temp.next;
@@ -62,7 +68,6 @@ public class OrderBook {
      * @param ord
      */
     public void matchingEngine(Order ord) {
-        outputBBO();
         System.out.println("\t[ adding > " + ord.toString());
         //loops around if the order being added is bigger than the one it is matched with to match it to the next onder
         while(true) {
@@ -98,7 +103,7 @@ public class OrderBook {
                 //if the new order is not "compatible" with any order in the book
                 } else {
                     //if it is better than the old best, or the first of its type > add and set as best
-                    if(bestBid == null || (bestBid != null && ord.getPrice() > bestBid.order.getPrice())) {
+                    if(bestBid == null || (bestBid != null && ord.getPrice() >= bestBid.order.getPrice())) {
                         bestBid = add(ord);
                     //>add to list
                     } else {
@@ -129,7 +134,7 @@ public class OrderBook {
                 //if the new order is not "compatible" with any order in the book
                 } else {
                     //if it is better than the old best, or the first of its type > add and set as best
-                    if(bestOffer == null || (bestOffer != null && ord.getPrice() < bestOffer.order.getPrice())) {
+                    if(bestOffer == null || (bestOffer != null && ord.getPrice() <= bestOffer.order.getPrice())) {
                         bestOffer = add(ord);
                         //>add to list
                     } else {
@@ -141,18 +146,23 @@ public class OrderBook {
             break;
         }
         //showing the book after adding the new order
-        outputBook();
+        outputBook(true);
+        outputBBO();
     }
 
     /**
      * outputs the the OrderBook to console with some formatting
      */
-    public void outputBook() {
+    public void outputBook(Boolean bool) {
         Node temp = head.next;
         System.out.println("ORDER BOOK :\n======================");
         //going through the list
         while(temp.next != null) {
-            System.out.println(temp.order.toString());
+            if(bool) {
+                System.out.println(temp.order.toString());
+            } else {
+                temp.order.printFullDetails();
+            }
             //adding a divider between order types
             if(temp.order instanceof OfferOrder && temp.next.order instanceof BidOrder) {
                 System.out.println(">--------------------<");
@@ -168,18 +178,23 @@ public class OrderBook {
     public void outputBBO() {
         System.out.print("\tBest Bid & Offer > ");
         //different output if the reference is null
-        if(bestBid == null) {
+        if(bestBid == null || bestBid.order == null) {
             System.out.print("\tbidnull");
         } else {
             System.out.print("\t" + bestBid.order.toString());
         }
         //different output if the reference is null
-        if(bestOffer == null) {
+        if(bestOffer == null || bestOffer.order == null) {
             System.out.print("\toffnull");
         } else {
             System.out.print("\t" + bestOffer.order.toString());
         }
         System.out.println();
+    }
+
+    @Override
+    public void printFullDetails() {
+        outputBook(false);
     }
 
     /**

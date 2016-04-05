@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4d8db650-5a07-4044-aba7-2f7c019efe50" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/Anonymous.java" afterPath="$PROJECT_DIR$/src/Assignment3/Anonymous.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/BidOrder.java" afterPath="$PROJECT_DIR$/src/Assignment3/BidOrder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OfferOrder.java" afterPath="$PROJECT_DIR$/src/Assignment3/OfferOrder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/Order.java" afterPath="$PROJECT_DIR$/src/Assignment3/Order.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" afterPath="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" afterPath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
     </list>
     <ignored path="Assignments.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/src/Assignment3/Anonymous.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+              <caret line="3" column="8" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -51,8 +54,8 @@
       <file leaf-file-name="StockMarket.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="108">
+              <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -61,49 +64,9 @@
       <file leaf-file-name="OrderBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
+            <state relative-caret-position="540">
+              <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1923#2073#0" expanded="true" />
-                <element signature="e#2072#2073#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BidOrder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Assignment3/BidOrder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="e#235#236#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OfferOrder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Assignment3/OfferOrder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-              <folding>
-                <element signature="e#186#187#0" expanded="true" />
-                <element signature="e#209#210#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -111,9 +74,47 @@
       <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+            <state relative-caret-position="342">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BidOrder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Assignment3/BidOrder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OfferOrder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Assignment3/OfferOrder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="e#121#122#0" expanded="false" />
+                <element signature="e#161#162#0" expanded="false" />
+                <element signature="e#243#244#0" expanded="false" />
+                <element signature="e#292#293#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+              <folding>
+                <element signature="e#1088#1784#0" expanded="false" />
+                <element signature="e#1783#1784#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,14 +144,14 @@
         <option value="$PROJECT_DIR$/src/Assignment2/PublicationListingProcess1.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBoook.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderDialog.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/Anonymous.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Node.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBookList.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/Anonymous.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/Order.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/BidOrder.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OfferOrder.java" />
-        <option value="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/BidOrder.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderGenerator.java" />
+        <option value="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
         <option value="$PROJECT_DIR$/src/Assignment3/OrderBook.java" />
       </list>
     </option>
@@ -186,12 +187,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -734,7 +735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1459784355978</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="made comments &lt;G3">
+      <created>1459864134369</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1459864134369</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -758,12 +766,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33690986" sideWeight="0.50213444" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35912487" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4108858" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10885806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -776,6 +783,7 @@
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -820,7 +828,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fixed the class not found error" />
     <MESSAGE value="completed the macthing engine method, added toString to Order class and its subclasses and added some comments" />
     <MESSAGE value="OrderBook no longer extends LinkedList (horrible idea ot begin with), adding process not fully working" />
     <MESSAGE value="fixed the add method, now maintains sorting properly ~&gt; still need to fix the midpoint method" />
@@ -845,7 +852,8 @@
     <MESSAGE value="commit before combining the matching order process for both bids and offers &lt;G3" />
     <MESSAGE value="commit with method working with indexes 0 and 1, preparing to merge (again) &lt;G3" />
     <MESSAGE value="reverting to lengthy code, no time to debug completely. problem seems to be in the best[] and changing it to be right, might try again at another time" />
-    <option name="LAST_COMMIT_MESSAGE" value="reverting to lengthy code, no time to debug completely. problem seems to be in the best[] and changing it to be right, might try again at another time" />
+    <MESSAGE value="made comments &lt;G3" />
+    <option name="LAST_COMMIT_MESSAGE" value="made comments &lt;G3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -858,14 +866,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -879,8 +880,10 @@
         <state relative-caret-position="132">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#161#162#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -889,10 +892,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -904,14 +904,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -925,8 +918,10 @@
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#161#162#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -935,10 +930,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -950,14 +942,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
@@ -971,8 +956,10 @@
         <state relative-caret-position="138">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#161#162#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -981,10 +968,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -996,14 +980,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1017,8 +994,10 @@
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#161#162#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1027,10 +1006,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1042,14 +1018,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1063,8 +1032,10 @@
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#161#162#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1073,10 +1044,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,14 +1056,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1109,8 +1070,10 @@
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#161#162#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1119,10 +1082,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1196,14 +1156,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
     <entry file="file://$USER_HOME$/Downloads/SwingJFrameDemo/SwingJFrameDemo/src/net/codejava/swing/jframe/SwingJFrameDemo.java" />
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Node.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1219,76 +1172,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/Anonymous.java">
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java" />
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/OfferOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="18">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#121#122#0" expanded="false" />
+            <element signature="e#161#162#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+            <element signature="e#292#293#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        <state relative-caret-position="468">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1923#2073#0" expanded="true" />
-            <element signature="e#2072#2073#0" expanded="true" />
+            <element signature="e#1088#1784#0" expanded="false" />
+            <element signature="e#1783#1784#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/Anonymous.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="54">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/BidOrder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Assignment3/OfferOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="e#186#187#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
+        <state relative-caret-position="342">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="13" column="51" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/OrderBook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2414">
-          <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
+        <state relative-caret-position="540">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
           <folding />
         </state>
       </provider>

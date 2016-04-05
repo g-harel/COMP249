@@ -2,7 +2,7 @@ package Assignment3;
 
 public class BidOrder extends Order{
 
-    public BidOrder(long id, double price, int volume) {
+    public BidOrder(String id, double price, int volume) {
         super(id, price, volume);
     }
 

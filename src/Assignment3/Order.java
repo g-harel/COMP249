@@ -2,21 +2,18 @@ package Assignment3;
 
 public class Order implements Anonymous{
 
-    private long id;
+    private String id;
     private double price;
     private int volume;
 
-    Order next;
-    Order prev;
-
-    public Order(long id, double price, int volume) {
+    public Order(String id, double price, int volume) {
         this.id = id;
         this.price = price;
         this.volume = volume;
     }
 
     public Order() {
-        this(0,0,0);
+        this("",0,0);
     }
 
     public boolean subtract(Order ord) {
@@ -34,14 +31,14 @@ public class Order implements Anonymous{
     }
 
     public void printFullDetails() {
-        System.out.println(" id" + id + this.toString());
+        System.out.println(" id: " + id + " > " + this.toString());
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

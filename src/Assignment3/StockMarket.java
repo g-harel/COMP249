@@ -56,6 +56,6 @@ public class StockMarket {
         System.out.println("execution took : " + (endTime - startTime)/1000000 + "milis");
 
         //opens the window
-        OrderGenerator window = new OrderGenerator(book);
+        new OrderGenerator(book);
     }
 }

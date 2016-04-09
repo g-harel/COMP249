@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d8db650-5a07-4044-aba7-2f7c019efe50" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Assignment3/Node.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" afterPath="$PROJECT_DIR$/src/Assignment3/StockMarket.java" />
     </list>
@@ -49,8 +48,8 @@
       <file leaf-file-name="StockMarket.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="36" column="105" selection-start-line="36" selection-start-column="105" selection-end-line="36" selection-end-column="105" />
+            <state relative-caret-position="468">
+              <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -181,56 +180,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COMP249" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COMP249" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COMP249" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COMP249" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COMP249" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assignment3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COMP249" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="COMP249" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scratches" />
       <pane id="Scope" />
@@ -805,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1460173443968</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="removed unnecessary Node.java class &lt;G3">
+      <created>1460173617326</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1460173617326</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TodoView">
@@ -891,7 +848,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="variables bestBid and bestOffer now correctly keep track of the middlepoint" />
     <MESSAGE value="matching engine now works properly and made the toString methods their final form" />
     <MESSAGE value="made gui non-functioning gui" />
     <MESSAGE value="made my own doubly linked list class to use instead of the one provided by java, not fully working yet" />
@@ -916,7 +872,8 @@
     <MESSAGE value="added comments and made a bit more efficient" />
     <MESSAGE value="added comments to more methods &lt;G3" />
     <MESSAGE value="final commit before submitting &lt;G3" />
-    <option name="LAST_COMMIT_MESSAGE" value="final commit before submitting &lt;G3" />
+    <MESSAGE value="removed unnecessary Node.java class &lt;G3" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary Node.java class &lt;G3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1263,8 +1220,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Assignment3/StockMarket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="36" column="105" selection-start-line="36" selection-start-column="105" selection-end-line="36" selection-end-column="105" />
+        <state relative-caret-position="468">
+          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
           <folding />
         </state>
       </provider>

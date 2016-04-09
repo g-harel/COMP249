@@ -17,7 +17,7 @@ public class StockMarket {
 //        book.matchingEngine(new OfferOrder("l", 10, 2));
 //        book.matchingEngine(new OfferOrder("l", 10, 1));
 
-//test over 50 random offers
+//test over 50 random orders
 //        for(int i = 0; i < 50; i++) {
 //            System.out.println((int)(i/50.0*100) + "%");
 //            boolean bool = (Math.random() > 0.5)?true:false;
@@ -28,7 +28,7 @@ public class StockMarket {
 //            }
 //        }
 
-//test over 100 000 random offers (recommended to comment out line 151 of OrderBook.java for less unnecessary console output)
+//test over 100 000 random orders (recommended to comment out line 151 of OrderBook.java for less unnecessary console output)
 //took about 8 seconds on my computer (when line 151 commented)
 //        for(int i = 0; i < 100000; i++) {
 //            System.out.println((int)(i/100000.0*100) + "%");

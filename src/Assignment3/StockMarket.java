@@ -5,7 +5,10 @@ public class StockMarket {
     static OrderBook book = new OrderBook();
     
     public static void main(String[] args) {
+        //start a timer
         long startTime = System.nanoTime();
+
+//I left some of the tests I ran as comments, if it might help
 
 //        book.matchingEngine(new BidOrder("l", 1, 3));
 //        book.matchingEngine(new BidOrder("l", 1, 2));
@@ -13,11 +16,10 @@ public class StockMarket {
 //        book.matchingEngine(new OfferOrder("l", 10, 3));
 //        book.matchingEngine(new OfferOrder("l", 10, 2));
 //        book.matchingEngine(new OfferOrder("l", 10, 1));
-//        book.outputBBO();
 
-//test over 50 offers
+//test over 50 random offers
 //        for(int i = 0; i < 50; i++) {
-//            System.out.println((int)(i/100.0*100) + "%");
+//            System.out.println((int)(i/50.0*100) + "%");
 //            boolean bool = (Math.random() > 0.5)?true:false;
 //            if(bool) {
 //                book.matchingEngine(new OfferOrder("A", Math.random()*100, (int)(Math.random()*200)));
@@ -26,7 +28,8 @@ public class StockMarket {
 //            }
 //        }
 
-//test over 100 000 offers
+//test over 100 000 random offers (recommended to comment out line 151 of OrderBook.java for less unnecessary console output)
+//took about 8 seconds on my computer (when line 151 commented)
 //        for(int i = 0; i < 100000; i++) {
 //            System.out.println((int)(i/100000.0*100) + "%");
 //            boolean bool = (Math.random() > 0.5)?true:false;
@@ -43,12 +46,16 @@ public class StockMarket {
         book.matchingEngine(new OfferOrder("D", 152.5, 120));
         book.matchingEngine(new BidOrder("E", 148, 75));
         book.matchingEngine(new OfferOrder("F", 152, 100));
-        book.matchingEngine(new BidOrder("G", 147, 200));
-        book.matchingEngine(new OfferOrder("H", 1, 3000));
-        book.matchingEngine(new BidOrder("I",11111,11111111));
+        book.matchingEngine(new BidOrder("G", 147, 450));
+        book.matchingEngine(new OfferOrder("H", 1, 300));
+        book.matchingEngine(new BidOrder("I",11111,1111));
+        book.matchingEngine(new BidOrder("J", 147, 100));
 
+        //prints the execution time
         long endTime = System.nanoTime();
         System.out.println("execution took : " + (endTime - startTime)/1000000 + "milis");
-        //OrderGenerator window = new OrderGenerator(book);
+
+        //opens the window
+        OrderGenerator window = new OrderGenerator(book);
     }
 }

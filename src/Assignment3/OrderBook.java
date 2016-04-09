@@ -20,6 +20,7 @@ public class OrderBook implements Anonymous{
         bestOffer = null;
         this.head = new Node(null, null, null);
         this.tail = new Node(null, null, null);
+        //attaching head and tail
         this.head.next = this.tail;
         this.tail.prev = this.head;
     }
@@ -46,7 +47,8 @@ public class OrderBook implements Anonymous{
             } else {
                 //iterate through list and save the position where the new order starts being bigger than the previous ones
                 while (temp.order != null) {
-                    if (ord.getPrice() > temp.order.getPrice() || (ord instanceof BidOrder && ord.getPrice() == bestBid.order.getPrice())) {
+                    //in the case that both orders are bids and they are equal, need to add it right away to preserve the newest first order
+                    if (ord.getPrice() > temp.order.getPrice() || (ord instanceof BidOrder && temp.order instanceof BidOrder && ord.getPrice() == temp.order.getPrice())) {
                         break;
                     }
                     temp = temp.next;
@@ -136,7 +138,7 @@ public class OrderBook implements Anonymous{
                     //if it is better than the old best, or the first of its type > add and set as best
                     if(bestOffer == null || (bestOffer != null && ord.getPrice() <= bestOffer.order.getPrice())) {
                         bestOffer = add(ord);
-                        //>add to list
+                    //>add to list
                     } else {
                         add(ord);
                     }
